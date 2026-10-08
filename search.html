@@ -68,8 +68,9 @@
   }
 
   .crayon-topline {
-    display: flex; justify-content: flex-end; align-items: center;
-    gap: 10px; min-height: 40px;
+    display: flex; align-items: center;
+    gap: 12px; min-height: 52px; width: 100%;
+    margin-top: 12px; margin-bottom: 16px;
   }
 
   .crayon-utility {
@@ -80,7 +81,7 @@
     color: var(--ink);
     font-family: var(--font-body);
     font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
-    text-decoration: none; cursor: pointer;
+    text-decoration: none; cursor: pointer; flex: none;
     transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
   }
   .crayon-utility:hover { background: #f4e6ce; box-shadow: 2px 3px 0 var(--ink); }
@@ -129,32 +130,33 @@
   /* search field */
 
   .crayon-field {
-    position: relative; display: flex; align-items: center; gap: 12px;
+    position: relative; display: flex; align-items: center; gap: 8px;
     border: 3px solid var(--ink);
     border-radius: 23px 18px 25px 17px;
     background: var(--paper-light);
     box-shadow: 5px 6px 0 rgba(226, 69, 58, 0.2);
-    z-index: 1;
+    z-index: 1; flex: 1; min-width: 0;
   }
-  .crayon-field:after {
+
+  .crayon-field--hero { height: 74px; padding: 7px 9px 7px 22px; }
+  .crayon-field--hero:after {
     content: ""; position: absolute; height: 3px; left: 22px; right: 116px; bottom: -7px;
     background: var(--red); border-radius: 50%;
     transform: rotate(-0.7deg); opacity: 0.85;
   }
-  .crayon-field:focus-within:after { animation: crayon-wiggle 1.4s ease-in-out infinite; }
+  .crayon-field--hero:focus-within:after { animation: crayon-wiggle 1.4s ease-in-out infinite; }
 
-  .crayon-field--hero { height: 74px; padding: 7px 9px 7px 22px; }
   .crayon-field--compact {
-    height: 52px; padding: 4px 6px 4px 16px;
+    height: 50px; padding: 4px 6px 4px 12px;
     border-width: 2px;
+    border-radius: 18px 14px 19px 15px;
     box-shadow: 3px 4px 0 rgba(226, 69, 58, 0.16);
   }
-  .crayon-field--compact:after { bottom: -5px; height: 2px; left: 16px; right: 96px; }
 
   .crayon-field input {
     flex: 1; min-width: 0; border: 0; outline: 0; background: transparent;
     color: var(--ink); font-family: var(--font-body);
-    font-weight: 500; letter-spacing: 0.01em;
+    font-weight: 500; letter-spacing: 0.01em; padding: 0;
   }
   .crayon-field--hero input { font-size: 18px; }
   .crayon-field--compact input { font-size: 15px; }
@@ -175,7 +177,7 @@
   .crayon-btn:active:not(:disabled) { transform: translateY(2px); }
   .crayon-btn:disabled { opacity: 0.5; cursor: not-allowed; }
   .crayon-field--hero .crayon-btn { height: 56px; }
-  .crayon-field--compact .crayon-btn { height: 40px; padding: 0 16px; font-size: 14px; }
+  .crayon-field--compact .crayon-btn { height: 38px; padding: 0 14px; font-size: 13.5px; border-radius: 13px 10px 14px 11px; }
 
   .crayon-spin { width: 16px; height: 16px; animation: crayon-spin 0.9s linear infinite; }
 
@@ -207,9 +209,8 @@
   .crayon-miniword {
     flex: none; border: 0; background: transparent;
     font-family: var(--font-display); font-size: 26px; font-weight: 700;
-    letter-spacing: -0.02em; color: var(--ink); cursor: pointer; padding: 0;
+    letter-spacing: -0.02em; color: var(--ink); cursor: pointer; padding: 0 4px;
   }
-  .crayon-resultbar .crayon-field { flex: 1; max-width: 620px; }
 
   .crayon-section {
     margin-top: 36px;
@@ -365,8 +366,7 @@
     .crayon-field--hero { height: 64px; padding-left: 16px; }
     .crayon-field--hero input { font-size: 16px; }
     .crayon-field--hero .crayon-btn { height: 48px; padding: 0 16px; font-size: 14px; }
-    .crayon-resultbar { flex-wrap: wrap; gap: 12px; }
-    .crayon-resultbar .crayon-field { max-width: none; }
+    .crayon-topline { flex-wrap: wrap; }
     .crayon-cards { grid-template-columns: 1fr; }
   }
 </style>
@@ -392,11 +392,8 @@
 <script>
 /* ------------------------------------------------------------------ *
  *  AI answers.
- *  This panel has no backend behind it right now, so it honestly says
- *  so instead of pretending to answer. Point BOT_ENDPOINT at a real
- *  hosted function if you build one, and the panel will use it.
  * ------------------------------------------------------------------ */
-const BOT_ENDPOINT = '';
+const BOT_ENDPOINT = 'https://base44.app/api/apps/6ac00545067996e0c27ffe9c/functions/askBots';
 
 const HERO_IMAGE =
   'https://media.base44.com/images/public/6ac00545067996e0c27ffe9c/fb13c869c_generated_2b0fbd89.jpg';
@@ -561,7 +558,6 @@ async function wikiTask(q) {
   return { web, images };
 }
 
-
 async function imagesTask(q) {
   const r = await getJson(
     'https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=' +
@@ -573,7 +569,8 @@ async function imagesTask(q) {
     .map((p) => {
       const info = (p.imageinfo || [])[0] || {};
       return {
-        title: String(p.title || '').replace(/^File:/, '').replace(/\.[a-z0-9]+$/i, ''),  thumb: info.thumburl,
+        title: String(p.title || '').replace(/^File:/, '').replace(/\.[a-z0-9]+$/i, ''),
+        thumb: info.thumburl,
         url: info.url || info.thumburl,
       };
     })
