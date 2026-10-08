@@ -1,0 +1,959 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='3' y='3' width='6' height='18' rx='2' fill='%23e2453a'/%3E%3Crect x='9' y='3' width='6' height='18' rx='2' fill='%232b4c9b'/%3E%3Crect x='15' y='3' width='6' height='18' rx='2' fill='%234e9a51'/%3E%3C/svg%3E" />
+<title>crayon — ask the web anything</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --font-heading: 'Quicksand', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Quicksand', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; background: #fbf3e4; -webkit-font-smoothing: antialiased; }
+  h1, h2, p { margin: 0; }
+  button { font: inherit; }
+  img { display: block; }
+
+  /* ---------- crayon search ---------- */
+
+  .crayon {
+    --paper: #fbf3e4;
+    --paper-light: #fffaf0;
+    --paper-card: #fff9ed;
+    --ink: #2a2622;
+    --red: #e2453a;
+    --blue: #2b4c9b;
+    --green: #4e9a51;
+    --soft-ink: #6b6257;
+    min-height: 100vh;
+    background-color: var(--paper);
+    color: var(--ink);
+    background-image:
+      radial-gradient(ellipse at 14% 10%, rgba(226, 69, 58, 0.06), transparent 32%),
+      radial-gradient(ellipse at 88% 36%, rgba(43, 76, 155, 0.06), transparent 30%),
+      repeating-linear-gradient(4deg, rgba(61, 46, 31, 0.016) 0, rgba(61, 46, 31, 0.016) 1px, transparent 1px, transparent 5px);
+  }
+
+  .crayon-wrap { max-width: 1040px; margin: 0 auto; padding: 24px 26px 96px; }
+
+  /* back-to-driftline bar — static, never touched by the app's own JS */
+  .crayon-backbar { display: flex; justify-content: flex-start; margin-bottom: 4px; }
+  .crayon-back {
+    display: inline-flex; align-items: center; gap: 9px;
+    border: 2px solid var(--ink);
+    border-radius: 16px 13px 17px 12px;
+    background: #eef1fc;
+    padding: 9px 16px 9px 12px;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 13px; font-weight: 700; letter-spacing: 0.02em;
+    text-decoration: none;
+    box-shadow: 2px 3px 0 rgba(43, 76, 155, 0.35);
+    transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
+  }
+  .crayon-back:hover { background: #dde4fb; box-shadow: 3px 4px 0 rgba(43, 76, 155, 0.45); transform: translateY(-1px); }
+  .crayon-back:active { transform: translateY(1px); box-shadow: 1px 2px 0 rgba(43, 76, 155, 0.4); }
+  .crayon-back svg { flex: none; width: 16px; height: 16px; }
+  .crayon-back-ring {
+    flex: none; width: 22px; height: 22px; border-radius: 50%;
+    background: var(--ink); color: var(--paper-light);
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .crayon-topline {
+    display: flex; justify-content: flex-end; align-items: center;
+    gap: 10px; min-height: 40px;
+  }
+
+  .crayon-utility {
+    border: 2px solid var(--ink);
+    border-radius: 16px 13px 17px 12px;
+    background: var(--paper-light);
+    padding: 8px 15px;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+    text-decoration: none; cursor: pointer;
+    transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
+  }
+  .crayon-utility:hover { background: #f4e6ce; box-shadow: 2px 3px 0 var(--ink); }
+  .crayon-utility:active { transform: translateY(1px); }
+
+  /* home */
+
+  .crayon-home {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    padding: 58px 0 0;
+    animation: crayon-arrive 0.8s cubic-bezier(0.2, 0.8, 0.25, 1) both;
+  }
+
+  .crayon-hero {
+    width: 186px; height: 130px;
+    display: block; overflow: hidden; object-fit: cover;
+    border: 3px solid var(--ink);
+    border-radius: 34px 24px 38px 22px;
+    box-shadow: 7px 7px 0 rgba(78, 154, 81, 0.26);
+    transform: rotate(-1.4deg);
+  }
+
+  .crayon-wordmark {
+    position: relative; display: inline-block;
+    font-family: var(--font-display);
+    font-size: 66px; line-height: 1; font-weight: 700;
+    letter-spacing: -0.03em; margin: 32px 0 0;
+  }
+  .crayon-wordmark:after {
+    content: ""; position: absolute; left: 3%; right: 3%; bottom: -8px;
+    height: 4px; background: var(--red); border-radius: 50%;
+    transform: rotate(-0.6deg); opacity: 0.85;
+  }
+
+  .crayon-tagline { margin: 20px 0 0; font-size: 15px; color: var(--soft-ink); }
+
+  .crayon-fieldwrap { position: relative; width: 100%; max-width: 640px; margin-top: 36px; }
+
+  .crayon-scratch {
+    position: absolute; z-index: 0; width: 320px; height: 2px;
+    left: 46px; top: -24px;
+    background: rgba(43, 76, 155, 0.22); filter: blur(1px);
+    animation: crayon-scratch 5s ease-in-out infinite;
+  }
+
+  /* search field */
+
+  .crayon-field {
+    position: relative; display: flex; align-items: center; gap: 12px;
+    border: 3px solid var(--ink);
+    border-radius: 23px 18px 25px 17px;
+    background: var(--paper-light);
+    box-shadow: 5px 6px 0 rgba(226, 69, 58, 0.2);
+    z-index: 1;
+  }
+  .crayon-field:after {
+    content: ""; position: absolute; height: 3px; left: 22px; right: 116px; bottom: -7px;
+    background: var(--red); border-radius: 50%;
+    transform: rotate(-0.7deg); opacity: 0.85;
+  }
+  .crayon-field:focus-within:after { animation: crayon-wiggle 1.4s ease-in-out infinite; }
+
+  .crayon-field--hero { height: 74px; padding: 7px 9px 7px 22px; }
+  .crayon-field--compact {
+    height: 52px; padding: 4px 6px 4px 16px;
+    border-width: 2px;
+    box-shadow: 3px 4px 0 rgba(226, 69, 58, 0.16);
+  }
+  .crayon-field--compact:after { bottom: -5px; height: 2px; left: 16px; right: 96px; }
+
+  .crayon-field input {
+    flex: 1; min-width: 0; border: 0; outline: 0; background: transparent;
+    color: var(--ink); font-family: var(--font-body);
+    font-weight: 500; letter-spacing: 0.01em;
+  }
+  .crayon-field--hero input { font-size: 18px; }
+  .crayon-field--compact input { font-size: 15px; }
+  .crayon-field input::placeholder { color: #8a8073; opacity: 1; }
+
+  .crayon-field-icon { flex: none; width: 19px; height: 19px; color: var(--soft-ink); }
+
+  .crayon-btn {
+    flex: none; height: 52px; padding: 0 22px;
+    border: 2px solid var(--ink);
+    border-radius: 17px 13px 18px 14px;
+    background: var(--red); color: var(--paper-light);
+    font-family: var(--font-body); font-size: 15px; font-weight: 700; letter-spacing: 0.03em;
+    cursor: pointer; box-shadow: 2px 3px 0 var(--ink);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  }
+  .crayon-btn:hover:not(:disabled) { background: #c93a32; box-shadow: 3px 4px 0 var(--ink); }
+  .crayon-btn:active:not(:disabled) { transform: translateY(2px); }
+  .crayon-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .crayon-field--hero .crayon-btn { height: 56px; }
+  .crayon-field--compact .crayon-btn { height: 40px; padding: 0 16px; font-size: 14px; }
+
+  .crayon-spin { width: 16px; height: 16px; animation: crayon-spin 0.9s linear infinite; }
+
+  /* chips */
+
+  .crayon-chips {
+    display: flex; gap: 11px; flex-wrap: wrap; justify-content: center; margin-top: 34px;
+  }
+  .crayon-chip {
+    border: 1.5px solid var(--ink);
+    border-radius: 50px 40px 45px 38px;
+    padding: 9px 16px; background: #f5e5c8; color: var(--ink);
+    font-family: var(--font-body); font-size: 13px; font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  }
+  .crayon-chip:nth-child(2) { background: #e6ebf4; }
+  .crayon-chip:nth-child(3) { background: #e6efdf; }
+  .crayon-chip:hover { box-shadow: 2px 3px 0 rgba(42, 38, 34, 0.5); transform: rotate(-1deg); }
+
+  /* results */
+
+  .crayon-resultbar {
+    display: flex; align-items: center; gap: 18px;
+    padding-bottom: 16px;
+    border-bottom: 2px dashed rgba(42, 38, 34, 0.22);
+    animation: crayon-arrive 0.6s ease both;
+  }
+  .crayon-miniword {
+    flex: none; border: 0; background: transparent;
+    font-family: var(--font-display); font-size: 26px; font-weight: 700;
+    letter-spacing: -0.02em; color: var(--ink); cursor: pointer; padding: 0;
+  }
+  .crayon-resultbar .crayon-field { flex: 1; max-width: 620px; }
+
+  .crayon-section {
+    margin-top: 36px;
+    animation: crayon-arrive 0.65s cubic-bezier(0.2, 0.8, 0.25, 1) both;
+  }
+  .crayon-sectionhead { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+  .crayon-sectionhead h2 {
+    font-family: var(--font-display); font-size: 25px; line-height: 1.1;
+    letter-spacing: -0.02em; font-weight: 700; margin: 0; text-transform: lowercase;
+  }
+  .crayon-sectionhead:after {
+    content: ""; height: 2px; flex: 1;
+    background: repeating-linear-gradient(90deg, var(--ink) 0 7px, transparent 7px 12px);
+    opacity: 0.2;
+  }
+
+  .crayon-cards {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); gap: 16px;
+  }
+
+  .crayon-card {
+    position: relative; display: block;
+    padding: 22px 18px 18px;
+    border: 2px solid var(--ink);
+    border-radius: 15px 22px 17px 21px;
+    background: var(--paper-card);
+    box-shadow: 4px 5px 0 rgba(42, 38, 34, 0.13);
+    color: var(--ink); text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .crayon-card:before {
+    content: ""; position: absolute; width: 44px; height: 12px; top: -8px; left: 22px;
+    transform: rotate(-5deg);
+    background: rgba(226, 69, 58, 0.42);
+    border: 1px solid rgba(42, 38, 34, 0.14);
+    clip-path: polygon(2% 10%, 96% 0, 100% 83%, 0 100%);
+  }
+  .crayon-card:hover { transform: translateY(-2px); box-shadow: 5px 7px 0 rgba(42, 38, 34, 0.16); }
+
+  .crayon-source {
+    display: block; font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.13em; text-transform: uppercase; color: var(--soft-ink);
+  }
+  .crayon-card-title { margin-top: 9px; font-size: 16.5px; font-weight: 600; line-height: 1.32; letter-spacing: -0.01em; }
+  .crayon-card-snippet { margin: 9px 0 0; font-size: 13.5px; line-height: 1.55; color: #57503f; }
+
+  /* answer */
+
+  .crayon-answer {
+    margin-top: 30px; padding: 22px 24px 24px;
+    border: 2px solid var(--ink);
+    border-radius: 23px 18px 28px 19px;
+    background: rgba(255, 250, 240, 0.72);
+    box-shadow: 5px 6px 0 rgba(43, 76, 155, 0.12);
+    animation: crayon-arrive 0.7s cubic-bezier(0.2, 0.8, 0.25, 1) both;
+  }
+  .crayon-botrow { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .crayon-bot {
+    border: 1.5px solid var(--ink);
+    border-radius: 50px 40px 45px 38px;
+    padding: 7px 14px; background: #f5e5c8; color: var(--ink);
+    font-family: var(--font-body); font-size: 12px; font-weight: 650;
+    cursor: pointer; transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  }
+  .crayon-bot:hover { box-shadow: 2px 3px 0 rgba(42, 38, 34, 0.5); }
+  .crayon-bot[data-active="true"] { background: var(--ink); color: var(--paper-light); }
+
+  .crayon-answer-text { font-size: 15px; line-height: 1.72; color: #38322b; }
+  .crayon-answer-text p { margin: 0 0 12px; }
+  .crayon-answer-text p:last-child { margin-bottom: 0; }
+  .crayon-answer-note { margin: 0; font-size: 14px; color: var(--soft-ink); }
+
+  /* images */
+
+  .crayon-images { display: grid; grid-template-columns: repeat(auto-fill, minmax(158px, 1fr)); gap: 14px; }
+  .crayon-image {
+    display: block; border: 2px solid var(--ink);
+    border-radius: 14px 18px 12px 17px; overflow: hidden;
+    background: var(--paper-card);
+    box-shadow: 4px 5px 0 rgba(42, 38, 34, 0.13);
+    text-decoration: none; color: var(--ink);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .crayon-image:hover { transform: translateY(-2px); box-shadow: 5px 7px 0 rgba(42, 38, 34, 0.16); }
+  .crayon-image img { width: 100%; height: 128px; object-fit: cover; }
+  .crayon-image span {
+    display: block; padding: 9px 11px;
+    font-size: 11px; font-weight: 600; line-height: 1.35; color: #57503f;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+
+  /* books */
+
+  .crayon-book { display: flex; gap: 14px; align-items: flex-start; }
+  .crayon-book img {
+    flex: none; width: 52px; height: 76px; object-fit: cover;
+    border: 1.5px solid var(--ink); border-radius: 5px; background: #f0e6d2;
+  }
+  .crayon-book-meta { margin-top: 7px; font-size: 12.5px; color: var(--soft-ink); }
+
+  /* definition */
+
+  .crayon-word { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .crayon-word strong { font-family: var(--font-display); font-size: 24px; font-weight: 700; }
+  .crayon-word em { font-style: normal; font-size: 13px; color: var(--soft-ink); }
+  .crayon-word-pos {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--green);
+  }
+  .crayon-word-example { margin: 12px 0 0; font-size: 13.5px; font-style: italic; color: var(--soft-ink); }
+
+  /* misc */
+
+  .crayon-note {
+    margin-top: 40px; padding: 26px; text-align: center;
+    border: 2px dashed rgba(42, 38, 34, 0.35);
+    border-radius: 23px 18px 28px 19px;
+    font-size: 14px; color: var(--soft-ink);
+  }
+  .crayon-loading { display: flex; justify-content: center; padding: 46px 0; color: var(--soft-ink); }
+
+  .crayon-utility:focus-visible,
+  .crayon-chip:focus-visible,
+  .crayon-btn:focus-visible,
+  .crayon-card:focus-visible,
+  .crayon-image:focus-visible,
+  .crayon-bot:focus-visible,
+  .crayon-back:focus-visible,
+  .crayon-miniword:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+
+  @keyframes crayon-spin { to { transform: rotate(360deg); } }
+
+  @keyframes crayon-arrive {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes crayon-scratch {
+    0%, 100% { transform: rotate(-8deg) translateX(0); opacity: 0.5; }
+    50% { transform: rotate(-7deg) translateX(15px); opacity: 0.2; }
+  }
+
+  @keyframes crayon-wiggle {
+    0%, 100% { transform: rotate(-0.7deg); }
+    50% { transform: rotate(0.6deg) translateX(4px); }
+  }
+
+  @media (max-width: 720px) {
+    .crayon-wrap { padding: 16px 16px 72px; }
+    .crayon-home { padding-top: 34px; }
+    .crayon-wordmark { font-size: 50px; }
+    .crayon-hero { width: 148px; height: 104px; }
+    .crayon-field--hero { height: 64px; padding-left: 16px; }
+    .crayon-field--hero input { font-size: 16px; }
+    .crayon-field--hero .crayon-btn { height: 48px; padding: 0 16px; font-size: 14px; }
+    .crayon-resultbar { flex-wrap: wrap; gap: 12px; }
+    .crayon-resultbar .crayon-field { max-width: none; }
+    .crayon-cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="crayon">
+  <div class="crayon-wrap">
+    <div class="crayon-backbar">
+      <a class="crayon-back" href="index.html">
+        <span class="crayon-back-ring">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        </span>
+        Back to Driftline
+      </a>
+    </div>
+    <div class="crayon-topline" id="topline"></div>
+    <div id="home"></div>
+    <div id="results"></div>
+  </div>
+</div>
+
+<script>
+/* ------------------------------------------------------------------ *
+ *  AI answers.
+ *  This panel has no backend behind it right now, so it honestly says
+ *  so instead of pretending to answer. Point BOT_ENDPOINT at a real
+ *  hosted function if you build one, and the panel will use it.
+ * ------------------------------------------------------------------ */
+const BOT_ENDPOINT = '';
+
+const HERO_IMAGE =
+  'https://media.base44.com/images/public/6ac00545067996e0c27ffe9c/fb13c869c_generated_2b0fbd89.jpg';
+
+const RANDOM_QUERIES = [
+  'how do crayons get their colour',
+  'the history of paper',
+  'why do we dream',
+  'the largest desert on earth',
+  'how do bees make honey',
+  'what is a quasar',
+];
+
+const CHIPS = [
+  { label: 'Feeling curious', random: true },
+  { label: 'Deep sea creatures', query: 'deep sea creatures' },
+  { label: 'How paper is made', query: 'how paper is made' },
+];
+
+const BOTS = [
+  { id: 'base44', name: 'Base 1' },
+  { id: 'claude', name: 'Claude Sonnet 5' },
+  { id: 'gemini', name: 'Gemini 3.8 Flash' },
+];
+
+const SPINNER =
+  '<svg class="crayon-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-6.2-8.6"/></svg>';
+
+const SEARCH_ICON =
+  '<svg class="crayon-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.4-3.4"/></svg>';
+
+const homeEl = document.getElementById('home');
+const toplineEl = document.getElementById('topline');
+const resultsEl = document.getElementById('results');
+
+const state = {
+  input: '',
+  query: '',
+  results: null,
+  loading: false,
+  answers: {},
+  activeBot: 'base44',
+  answerLoading: false,
+};
+
+/* ---------- helpers ---------- */
+
+function esc(value) {
+  return String(value == null ? '' : value).replace(/[&<>"']/g, (c) => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  }[c]));
+}
+
+function clean(text) {
+  return String(text || '')
+    .replace(/<[^>]*>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 240);
+}
+
+function fromNow(iso) {
+  const then = new Date(iso).getTime();
+  if (!then) return '';
+  const s = Math.max(1, Math.floor((Date.now() - then) / 1000));
+  const units = [
+    [31536000, 'year'], [2592000, 'month'], [604800, 'week'],
+    [86400, 'day'], [3600, 'hour'], [60, 'minute'],
+  ];
+  for (const [sec, name] of units) {
+    if (s >= sec) {
+      const n = Math.floor(s / sec);
+      return n + ' ' + name + (n > 1 ? 's' : '') + ' ago';
+    }
+  }
+  return s + ' seconds ago';
+}
+
+async function getJson(url, ms = 8000) {
+  const res = await fetch(url, { signal: AbortSignal.timeout(ms) });
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  return res.json();
+}
+
+let jsonpSeq = 0;
+function jsonp(url, ms = 8000) {
+  return new Promise((resolve, reject) => {
+    const cb = '__crayon_cb_' + (++jsonpSeq);
+    const script = document.createElement('script');
+    let done = false;
+    const finish = (fn, arg) => {
+      if (done) return;
+      done = true;
+      clearTimeout(timer);
+      try { delete window[cb]; } catch (e) { window[cb] = undefined; }
+      script.remove();
+      fn(arg);
+    };
+    const timer = setTimeout(() => finish(reject, new Error('timeout')), ms);
+    window[cb] = (data) => finish(resolve, data);
+    script.onerror = () => finish(reject, new Error('jsonp failed'));
+    script.src = url + (url.indexOf('?') === -1 ? '?' : '&') + 'callback=' + cb;
+    document.head.appendChild(script);
+  });
+}
+
+/* ---------- sources ---------- */
+
+async function ddgTask(q) {
+  const d = await jsonp(
+    'https://api.duckduckgo.com/?q=' + encodeURIComponent(q) +
+    '&format=json&no_html=1&skip_disambig=1&t=crayon'
+  );
+  const web = [];
+  if (d.AbstractText) {
+    web.push({
+      title: clean(d.Heading) || q,
+      url: d.AbstractURL || '',
+      snippet: clean(d.AbstractText),
+      source: d.AbstractSource || 'DuckDuckGo',
+    });
+  }
+  for (const r of (d.Results || []).slice(0, 4)) {
+    web.push({ title: clean(r.Text), url: r.FirstURL || '', snippet: '', source: 'DuckDuckGo' });
+  }
+  const related = [];
+  for (const t of (d.RelatedTopics || []).slice(0, 8)) {
+    if (t.Topics) related.push(...t.Topics.slice(0, 3));
+    else related.push(t);
+  }
+  for (const t of related.slice(0, 6)) {
+    if (t.FirstURL) web.push({ title: clean(t.Text), url: t.FirstURL, snippet: '', source: 'DuckDuckGo' });
+  }
+  return { web };
+}
+
+async function wikiTask(q) {
+  const search = await getJson(
+    'https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=' +
+    encodeURIComponent(q) + '&srlimit=5&format=json&origin=*'
+  );
+  const hits = (search.query && search.query.search) || [];
+  const web = hits.map((h) => ({
+    title: h.title,
+    url: 'https://en.wikipedia.org/wiki/' + encodeURIComponent(String(h.title).replace(/ /g, '_')),
+    snippet: clean(h.snippet),
+    source: 'Wikipedia',
+  }));
+
+  const images = [];
+  if (hits[0]) {
+    const slug = encodeURIComponent(String(hits[0].title).replace(/ /g, '_'));
+    const summary = await getJson('https://en.wikipedia.org/api/rest_v1/page/summary/' + slug).catch(() => null);
+    if (summary && summary.thumbnail && summary.thumbnail.source) {
+      images.push({
+        title: hits[0].title,
+        thumb: summary.thumbnail.source,
+        url: (summary.content_urls && summary.content_urls.desktop && summary.content_urls.desktop.page) || web[0].url,
+      });
+    }
+  }
+  return { web, images };
+}
+
+
+async function imagesTask(q) {
+  const r = await getJson(
+    'https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=' +
+    encodeURIComponent(q) +
+    '&gsrnamespace=6&gsrlimit=8&prop=imageinfo&iiprop=url&iiurlwidth=420&format=json&origin=*'
+  );
+  const pages = Object.values((r.query && r.query.pages) || {});
+  const images = pages
+    .map((p) => {
+      const info = (p.imageinfo || [])[0] || {};
+      return {
+        title: String(p.title || '').replace(/^File:/, '').replace(/\.[a-z0-9]+$/i, ''),  thumb: info.thumburl,
+        url: info.url || info.thumburl,
+      };
+    })
+    .filter((i) => i.thumb);
+  return { images };
+}
+
+async function booksTask(q) {
+  const r = await getJson(
+    'https://openlibrary.org/search.json?q=' + encodeURIComponent(q) +
+    '&limit=5&fields=title,author_name,first_publish_year,key,cover_i'
+  );
+  const books = (r.docs || []).map((d) => ({
+    title: d.title,
+    author: (d.author_name || [])[0] || '',
+    year: d.first_publish_year || null,
+    url: d.key ? 'https://openlibrary.org' + d.key : '',
+    cover: d.cover_i ? 'https://covers.openlibrary.org/b/id/' + d.cover_i + '-M.jpg' : null,
+  }));
+  return { books };
+}
+
+async function discussionsTask(q) {
+  const r = await getJson(
+    'https://hn.algolia.com/api/v1/search?query=' + encodeURIComponent(q) + '&tags=story&hitsPerPage=6'
+  );
+  const discussions = (r.hits || [])
+    .filter((h) => h.title)
+    .map((h) => ({
+      title: h.title,
+      url: h.url || 'https://news.ycombinator.com/item?id=' + h.objectID,
+      points: h.points || 0,
+      comments: h.num_comments || 0,
+      date: h.created_at || '',
+    }));
+  return { discussions };
+}
+
+async function wordTask(q) {
+  if (!/^[a-zA-Z][a-zA-Z'-]{1,30}$/.test(q)) return null;
+  const data = await getJson(
+    'https://api.dictionaryapi.dev/api/v2/entries/en/' + encodeURIComponent(q.toLowerCase())
+  );
+  const entry = Array.isArray(data) ? data[0] : null;
+  if (!entry) return null;
+  const phonetic =
+    entry.phonetic || (entry.phonetics || []).map((p) => p.text).filter(Boolean)[0] || '';
+  const meaning = (entry.meanings || [])[0];
+  if (!meaning) return null;
+  const def = (meaning.definitions || [])[0] || {};
+  return {
+    definition: {
+      word: entry.word || q,
+      phonetic,
+      partOfSpeech: meaning.partOfSpeech || '',
+      meaning: def.definition || '',
+      example: def.example || '',
+    },
+  };
+}
+
+async function webSearch(q) {
+  const parts = await Promise.allSettled([
+    ddgTask(q), wikiTask(q), imagesTask(q), booksTask(q), discussionsTask(q), wordTask(q),
+  ]);
+
+  const out = { query: q, web: [], images: [], books: [], discussions: [], definition: null };
+  for (const part of parts) {
+    if (part.status !== 'fulfilled' || !part.value) continue;
+    const v = part.value;
+    if (v.web) out.web.push(...v.web);
+    if (v.images) out.images.push(...v.images);
+    if (v.books) out.books.push(...v.books);
+    if (v.discussions) out.discussions.push(...v.discussions);
+    if (v.definition) out.definition = v.definition;
+  }
+
+  const seen = new Set();
+  out.images = out.images
+    .filter((img) => img.thumb && !seen.has(img.thumb) && seen.add(img.thumb))
+    .slice(0, 9);
+  out.web = out.web.filter((item) => item.title && item.url).slice(0, 12);
+  return out;
+}
+
+/* ---------- markup ---------- */
+
+function searchBarHtml(variant) {
+  return (
+    '<form class="crayon-field crayon-field--' + variant + '">' +
+      SEARCH_ICON +
+      '<input type="text" placeholder="Ask the web anything" aria-label="Ask the web anything" autocomplete="off" />' +
+      '<button type="submit" class="crayon-btn">Search</button>' +
+    '</form>'
+  );
+}
+
+function sectionHtml(title, inner) {
+  return (
+    '<section class="crayon-section">' +
+      '<div class="crayon-sectionhead"><h2>' + title + '</h2></div>' +
+      inner +
+    '</section>'
+  );
+}
+
+function webHtml(items) {
+  if (!items || !items.length) return '';
+  return sectionHtml('web results',
+    '<div class="crayon-cards">' +
+      items.map((item, i) =>
+        '<a class="crayon-card" href="' + esc(item.url) + '" target="_blank" rel="noreferrer">' +
+          '<span class="crayon-source">' + esc(item.source) + '</span>' +
+          '<div class="crayon-card-title">' + esc(item.title) + '</div>' +
+          (item.snippet ? '<p class="crayon-card-snippet">' + esc(item.snippet) + '</p>' : '') +
+        '</a>'
+      ).join('') +
+    '</div>'
+  );
+}
+
+function imagesHtml(items) {
+  if (!items || !items.length) return '';
+  return sectionHtml('images',
+    '<div class="crayon-images">' +
+      items.map((item) =>
+        '<a class="crayon-image" href="' + esc(item.url || item.thumb) + '" target="_blank" rel="noreferrer">' +
+          '<img src="' + esc(item.thumb) + '" alt="' + esc(item.title) + '" loading="lazy" />' +
+          '<span>' + esc(item.title) + '</span>' +
+        '</a>'
+      ).join('') +
+    '</div>'
+  );
+}
+
+function booksHtml(items) {
+  if (!items || !items.length) return '';
+  return sectionHtml('books',
+    '<div class="crayon-cards">' +
+      items.map((book) =>
+        '<a class="crayon-card" href="' + esc(book.url) + '" target="_blank" rel="noreferrer">' +
+          '<div class="crayon-book">' +
+            (book.cover ? '<img src="' + esc(book.cover) + '" alt="" loading="lazy" />' : '') +
+            '<div>' +
+              '<span class="crayon-source">Open Library</span>' +
+              '<div class="crayon-card-title">' + esc(book.title) + '</div>' +
+              '<div class="crayon-book-meta">' +
+                esc([book.author, book.year].filter(Boolean).join(' \u00b7 ')) +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+        '</a>'
+      ).join('') +
+    '</div>'
+  );
+}
+
+function discussionsHtml(items) {
+  if (!items || !items.length) return '';
+  return sectionHtml('discussions',
+    '<div class="crayon-cards">' +
+      items.map((item) =>
+        '<a class="crayon-card" href="' + esc(item.url) + '" target="_blank" rel="noreferrer">' +
+          '<span class="crayon-source">Hacker News</span>' +
+          '<div class="crayon-card-title">' + esc(item.title) + '</div>' +
+          '<div class="crayon-book-meta">' +
+            esc(item.points + ' points \u00b7 ' + item.comments + ' comments' +
+              (item.date ? ' \u00b7 ' + fromNow(item.date) : '')) +
+          '</div>' +
+        '</a>'
+      ).join('') +
+    '</div>'
+  );
+}
+
+function wordHtml(def) {
+  if (!def || !def.meaning) return '';
+  return sectionHtml('word',
+    '<div class="crayon-answer">' +
+      '<div class="crayon-word">' +
+        '<strong>' + esc(def.word) + '</strong>' +
+        (def.phonetic ? '<em>' + esc(def.phonetic) + '</em>' : '') +
+        (def.partOfSpeech ? '<span class="crayon-word-pos">' + esc(def.partOfSpeech) + '</span>' : '') +
+      '</div>' +
+      '<p class="crayon-answer-text" style="margin-top:12px">' + esc(def.meaning) + '</p>' +
+      (def.example ? '<p class="crayon-word-example">\u201c' + esc(def.example) + '\u201d</p>' : '') +
+    '</div>'
+  );
+}
+
+function answerHtml() {
+  const current = state.answers[state.activeBot];
+
+  let body;
+  if (state.answerLoading || !current) {
+    body = '<p class="crayon-answer-note">Thinking\u2026</p>';
+  } else if (current.error) {
+    body = '<p class="crayon-answer-note">' + esc(current.error) + '</p>';
+  } else {
+    body = '<div class="crayon-answer-text">' +
+      String(current.text || '')
+        .split(/\n{2,}/)
+        .filter((p) => p.trim())
+        .map((p) => '<p>' + esc(p.trim()) + '</p>')
+        .join('') +
+    '</div>';
+  }
+
+  return (
+    '<section class="crayon-answer">' +
+      '<div class="crayon-botrow">' +
+        BOTS.map((bot) =>
+          '<button type="button" class="crayon-bot" data-bot="' + bot.id + '" data-active="' +
+          (bot.id === state.activeBot) + '">' + esc(bot.name) + '</button>'
+        ).join('') +
+      '</div>' +
+      body +
+    '</section>'
+  );
+}
+
+/* ---------- rendering ---------- */
+
+function wireSearch(root) {
+  const form = root.querySelector('.crayon-field');
+  if (!form) return;
+  const input = form.querySelector('input');
+  const btn = form.querySelector('.crayon-btn');
+
+  input.value = state.input;
+  const sync = () => {
+    btn.disabled = state.loading || !state.input.trim();
+    btn.innerHTML = state.loading ? SPINNER : 'Search';
+  };
+
+  input.addEventListener('input', () => {
+    state.input = input.value;
+    sync();
+  });
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    run(state.input);
+  });
+  sync();
+}
+
+function renderHome() {
+  homeEl.innerHTML =
+    '<div class="crayon-home">' +
+      '<img class="crayon-hero" src="' + esc(HERO_IMAGE) + '" alt="" />' +
+      '<h1 class="crayon-wordmark">crayon</h1>' +
+      '<p class="crayon-tagline">ask the web anything</p>' +
+      '<div class="crayon-fieldwrap">' +
+        '<span class="crayon-scratch" aria-hidden="true"></span>' +
+        searchBarHtml('hero') +
+      '</div>' +
+      '<div class="crayon-chips">' +
+        CHIPS.map((chip, i) =>
+          '<button type="button" class="crayon-chip" data-chip="' + i + '">' + esc(chip.label) + '</button>'
+        ).join('') +
+      '</div>' +
+    '</div>';
+
+  wireSearch(homeEl);
+
+  homeEl.querySelectorAll('[data-chip]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const chip = CHIPS[Number(btn.dataset.chip)];
+      run(chip.random ? RANDOM_QUERIES[Math.floor(Math.random() * RANDOM_QUERIES.length)] : chip.query);
+    });
+  });
+}
+
+function renderResults() {
+  toplineEl.innerHTML =
+    '<button type="button" class="crayon-miniword" id="crayon-home">crayon</button>' +
+    searchBarHtml('compact') +
+    '<button type="button" class="crayon-utility" id="crayon-clear">clear</button>';
+
+  wireSearch(toplineEl);
+  toplineEl.querySelector('#crayon-home').addEventListener('click', goHome);
+  toplineEl.querySelector('#crayon-clear').addEventListener('click', goHome);
+
+  const r = state.results;
+  const empty =
+    r && !(r.web || []).length && !(r.images || []).length &&
+    !(r.books || []).length && !(r.discussions || []).length && !r.definition;
+
+  resultsEl.innerHTML =
+    answerHtml() +
+    webHtml(r && r.web) +
+    imagesHtml(r && r.images) +
+    booksHtml(r && r.books) +
+    discussionsHtml(r && r.discussions) +
+    wordHtml(r && r.definition) +
+    (!r && state.loading ? '<div class="crayon-loading">' + SPINNER + '</div>' : '') +
+    (empty ? '<p class="crayon-note">Nothing turned up for \u201c' + esc(state.query) + '\u201d. Try different words.</p>' : '');
+
+  resultsEl.querySelectorAll('[data-bot]').forEach((btn) => {
+    btn.addEventListener('click', () => loadAnswer(btn.dataset.bot));
+  });
+}
+
+/* ---------- behaviour ---------- */
+
+async function loadAnswer(botId) {
+  state.activeBot = botId;
+  const cached = state.answers[botId];
+  if (cached && cached.query === state.query) {
+    renderResults();
+    return;
+  }
+
+  state.answerLoading = true;
+  renderResults();
+
+  if (!BOT_ENDPOINT) {
+    state.answers[botId] = {
+      error: 'The AI answers run in the hosted app. Point BOT_ENDPOINT at your askBots function to switch them on here.',
+      query: state.query,
+    };
+  } else {
+    try {
+      const res = await fetch(BOT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: state.query, bot: botId }),
+      });
+      const data = await res.json();
+      state.answers[botId] = Object.assign({}, data, { query: state.query });
+    } catch (e) {
+      state.answers[botId] = { error: 'That bot is quiet right now.', query: state.query };
+    }
+  }
+
+  state.answerLoading = false;
+  renderResults();
+}
+
+async function run(raw) {
+  const askedQuery = String(raw || '').trim();
+  if (!askedQuery) return;
+
+  state.input = askedQuery;
+  state.query = askedQuery;
+  state.results = null;
+  state.loading = true;
+  state.answers = {};
+  state.answerLoading = false;
+  window.scrollTo({ top: 0 });
+
+  homeEl.innerHTML = '';
+  renderResults();
+
+  loadAnswer('base44');
+
+  try {
+    state.results = await webSearch(askedQuery);
+  } catch (e) {
+    state.results = { web: [], images: [], books: [], discussions: [], definition: null };
+  }
+
+  state.loading = false;
+  renderResults();
+}
+
+function goHome() {
+  state.input = '';
+  state.query = '';
+  state.results = null;
+  state.loading = false;
+  state.answers = {};
+  state.answerLoading = false;
+  toplineEl.innerHTML = '';
+  resultsEl.innerHTML = '';
+  renderHome();
+  window.scrollTo({ top: 0 });
+}
+
+renderHome();
+</script>
+</body>
+</html>
