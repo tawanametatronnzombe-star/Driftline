@@ -1,0 +1,2226 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-accent="blue">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<meta name="color-scheme" content="light dark">
+<title>Driftline — chat directly, just between you two</title>
+<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjogIkRyaWZ0bGluZSIsICJzaG9ydF9uYW1lIjogIkRyaWZ0bGluZSIsICJkZXNjcmlwdGlvbiI6ICJDaGF0IGRpcmVjdGx5IHdpdGggc29tZW9uZSwgZGV2aWNlIHRvIGRldmljZSBcdTIwMTQgbm8gYWNjb3VudHMsIG5vIHNlcnZlci4iLCAic3RhcnRfdXJsIjogIi4iLCAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwgImJhY2tncm91bmRfY29sb3IiOiAiI0Y1RjZGQyIsICJ0aGVtZV9jb2xvciI6ICIjNEM2RkZGIiwgImljb25zIjogW3sic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIWnBaWGRDYjNnOUlqQWdNQ0F4T1RJZ01Ua3lJajRLUEhKbFkzUWdkMmxrZEdnOUlqRTVNaUlnYUdWcFoyaDBQU0l4T1RJaUlISjRQU0kwTWlJZ1ptbHNiRDBpSXpSRE5rWkdSaUl2UGdvOGRHVjRkQzI0UFNJNU5pSWdlVDBpTVRNeUlpQm1iMjUwTFdaaGJWbHNlVDBpUjJWdmNtZHBZU3dnSjFScGJXVnpJRTVsZHlCU2IyMWhiaWNzSUhObGNtbG1JaUJtYjI1MExYTnBlbVU5SWpFd09DSWdabTl1ZEMxM1pXbG5hSFE5SWpjd01DSWdabWxzYkQwaUkyWm1abVptWmlJZ2RHVjRkQzFoYm1Ob2IzSTlJbTFwWkdSc1pTSStSRHd2ZEdWNGRENEtQQzl6ZG1jKyIsICJzaXplcyI6ICIxOTJ4MTkyIiwgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCJ9LCB7InNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBeE9USWdNVGt5SWo0S1BISmxZM1FnZDJsa2RHZzlJakU1TWlJZ2FHVnBaMmgwUFNJeE9USlJJSEo0UFNJME1pSWdabWxzYkQwaUl6UkROa1pHUmlJdlBnbzhkR1Y0ZENCNFBTSTVOaUlnZVQwaU1UTXlJaUJtYjI1MExXWmhiV2xzZVQwaVIyVnZjbWRwWVN3Z0oxUnBiV1Z6SUU1bGR5QlNiMjFoYmljc0lITmxjbWxtSWlCbWIyNTBMWE5wZW1VOUlqRXdPQ0lnWm05dWRDMTNaV2xuYUhROUlqY3dNQ0lnWm1sc2JEMGlJMlptWm1abVppSWdkR1Y0ZEMxaGJtTm9iM0k5SW0xcFpHUnNaU0krUkR3dmRHVjRkRDRLUEM5emRtYysiLCAic2l6ZXMiOiAiNTEyeDUxMiIsICJ0eXBlIjogImltYWdlL3N2Zyt4bWwifV19">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj4KPHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIxOTIiIHJ4PSI0MiIgZmlsbD0iIzRDNkZGRiIvPgo8dGV4dCB4PSI5NiIgeT0iMTMyIiBmb250LWZhbWlseT0iR2VvcmdpYSwgJ1RpbWVzIE5ldyBSb21hbicsIHNlcmlmIiBmb250LXNpemU9IjEwOCIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RDwvdGV4dD4KPC9zdmc+">
+<meta name="theme-color" content="#4C6FFF">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj4KPHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIxOTIiIHJ4PSI0MiIgZmlsbD0iIzRDNkZGRiIvPgo8dGV4dCB4PSI5NiIgeT0iMTMyIiBmb250LWZhbWlseT0iR2VvcmdpYSwgJ1RpbWVzIE5ldyBSb21hbicsIHNlcmlmIiBmb250LXNpemU9IjEwOCIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RDwvdGV4dD4KPC9zdmc+">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================= THEME TOKENS ============================= */
+:root{
+  --radius-lg:20px; --radius-md:14px; --radius-sm:10px;
+  --font-display:'Baloo 2','Segoe UI Rounded',ui-rounded,-apple-system,'Nunito',sans-serif;
+  --font-body:'Nunito','Segoe UI',ui-sans-serif,-apple-system,sans-serif;
+  --shadow-soft:0 10px 30px -12px rgba(30,20,60,.18);
+  --shadow-pop:0 20px 50px -18px rgba(30,20,60,.35);
+  
+  /* Pip style tokens */
+  --cream:#FFF6E6; --paper:#FFFDF7; --line:#EFE6D0;
+  --sky:#CDE7F7; --sky-deep:#6FB0DC; --sky-ink:#245F86;
+  --mint:#D3EFE0; --mint-deep:#7CC5A0;
+  --peach:#FFE3CC; --soft:#75828F;
+  --err:#FBE1D8; --err-ink:#86463A;
+  --r:24px;
+  --head:'Fredoka','Nunito',system-ui,sans-serif;
+}
+html[data-theme="light"]{
+  --bg:#F5F6FC; --surface:#FFFFFF; --surface-2:#EFF1FA; --surface-3:#E4E7F5;
+  --ink:#1C1D2B; --ink-soft:#6B7086; --ink-faint:#A0A4B8; --border:#E3E5F2;
+  --bubble-mine:var(--accent); --bubble-mine-ink:#fff;
+  --bubble-theirs:#EFF1FA; --bubble-theirs-ink:#1C1D2B;
+}
+html[data-theme="dark"]{
+  --bg:#131420; --surface:#1B1D2C; --surface-2:#232538; --surface-3:#2C2F46;
+  --ink:#F1F2FA; --ink-soft:#9EA2BC; --ink-faint:#666A85; --border:#2E304A;
+  --bubble-mine:var(--accent); --bubble-mine-ink:#fff;
+  --bubble-theirs:#252740; --bubble-theirs-ink:#F1F2FA;
+}
+html[data-accent="blue"]{ --accent:#4C6FFF; --accent-ink:#fff; --accent-soft:#E7EBFF; }
+html[data-accent="purple"]{ --accent:#8C5CF5; --accent-ink:#fff; --accent-soft:#EEE6FF; }
+html[data-accent="pink"]{ --accent:#F5559B; --accent-ink:#fff; --accent-soft:#FFE6F1; }
+html[data-accent="green"]{ --accent:#1FB574; --accent-ink:#fff; --accent-soft:#DEF7EC; }
+html[data-accent="orange"]{ --accent:#FF8A3D; --accent-ink:#fff; --accent-soft:#FFEBDA; }
+html[data-theme="dark"]{ --accent-soft: color-mix(in srgb, var(--accent) 22%, var(--surface-2)); }
+
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent; tap-highlight-color:transparent;}
+html,body{height:100%;}
+body{
+  margin:0; background:var(--bg); color:var(--ink); font-family:var(--font-body);
+  -webkit-font-smoothing:antialiased; overflow:hidden;
+}
+button{font-family:inherit; cursor:pointer; touch-action:manipulation; -webkit-tap-highlight-color:transparent; outline:none;}
+button:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+a{ -webkit-tap-highlight-color:transparent; }
+input,textarea{font-family:inherit;}
+::selection{background:var(--accent-soft);}
+::-webkit-scrollbar{width:8px; height:8px;}
+::-webkit-scrollbar-thumb{background:var(--surface-3); border-radius:8px;}
+::-webkit-scrollbar-track{background:transparent;}
+
+/* ============================= LAYOUT ============================= */
+#app{ display:grid; grid-template-columns:76px 308px 1fr; height:100vh; height:100dvh; }
+.rail{
+  background:var(--surface); border-right:1px solid var(--border);
+  display:flex; flex-direction:column; align-items:center; padding:18px 0; gap:6px;
+}
+.rail-logo{
+  width:42px; height:42px; border-radius:14px; background:var(--accent); color:var(--accent-ink);
+  display:flex; align-items:center; justify-content:center; font-family:var(--font-display);
+  font-weight:700; font-size:19px; margin-bottom:14px; box-shadow:var(--shadow-soft);
+}
+.rail-btn{
+  width:46px; height:46px; border:none; background:transparent; border-radius:14px;
+  color:var(--ink-soft); display:flex; align-items:center; justify-content:center;
+  transition:background .15s, color .15s;
+}
+.rail-btn:hover{ background:var(--surface-2); color:var(--ink); }
+.rail-btn.active{ background:var(--accent-soft); color:var(--accent); }
+
+.sidebar{
+  background:var(--surface); border-right:1px solid var(--border);
+  display:flex; flex-direction:column; min-width:0;
+}
+.sidebar-head{ padding:18px 18px 10px; }
+.sidebar-head-row{ display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+.sidebar-head h1{
+  font-family:var(--font-display); font-size:22px; margin:0; font-weight:700;
+}
+.head-actions{ display:flex; align-items:center; gap:8px; }
+.avatar-btn{
+  width:38px; height:38px; border-radius:50%; border:none; overflow:hidden; flex:none;
+  background:var(--accent-soft); color:var(--accent); font-weight:800; font-family:var(--font-display);
+  display:flex; align-items:center; justify-content:center; font-size:14px;
+}
+.avatar-btn img{ width:100%; height:100%; object-fit:cover; display:block; }
+.name-field{
+  display:flex; align-items:center; gap:8px; background:var(--surface-2); border-radius:var(--radius-sm);
+  padding:8px 12px;
+}
+.name-field input{
+  border:none; background:transparent; outline:none; color:var(--ink); font-size:14px; width:100%;
+}
+.name-field span{ font-size:12px; color:var(--ink-faint); white-space:nowrap; }
+
+.sidebar-actions{ display:flex; flex-direction:column; gap:8px; padding:12px 18px; }
+.pill-btn{
+  width:100%; border:1px dashed var(--border); background:transparent; color:var(--ink-soft);
+  border-radius:var(--radius-sm); padding:9px 10px; font-size:12.5px; font-weight:700;
+  display:flex; align-items:center; justify-content:center; gap:6px; transition:.15s;
+}
+.pill-btn:hover{ border-color:var(--accent); color:var(--accent); background:var(--accent-soft); }
+
+.explore-btn{
+  margin:0 18px 12px; padding:11px 13px; display:flex; align-items:center; gap:11px;
+  border-radius:var(--radius-md); text-decoration:none; color:var(--ink);
+  background:linear-gradient(135deg, var(--accent-soft), var(--surface-2));
+  border:1px solid var(--border); transition:transform .15s, box-shadow .15s, border-color .15s;
+}
+.explore-btn:hover{ border-color:var(--accent); box-shadow:0 4px 14px -6px color-mix(in srgb, var(--accent) 50%, transparent); transform:translateY(-1px); }
+.explore-icon{
+  flex:none; width:34px; height:34px; border-radius:10px; background:var(--surface);
+  display:flex; align-items:center; justify-content:center; color:var(--accent); border:1px solid var(--border);
+}
+.explore-text{ flex:1; min-width:0; display:flex; flex-direction:column; gap:1px; }
+.explore-title{ font-size:13px; font-weight:800; }
+.explore-sub{ font-size:11px; color:var(--ink-faint); }
+.explore-arrow{ flex:none; color:var(--ink-faint); }
+.explore-btn:hover .explore-arrow{ color:var(--accent); }
+
+.chat-list{ flex:1; overflow-y:auto; padding:4px 10px 16px; }
+.chat-row{
+  display:flex; align-items:center; gap:11px; padding:10px 10px; border-radius:var(--radius-md);
+  cursor:pointer; margin-bottom:2px; position:relative;
+}
+.chat-row:hover{ background:var(--surface-2); }
+.chat-row.active{ background:var(--accent-soft); }
+.avatar{
+  width:42px; height:42px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-display); font-weight:700; font-size:15px; color:#fff; position:relative; overflow:hidden;
+}
+.avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+.avatar.group{ border-radius:16px; }
+.status-dot{
+  position:absolute; right:-1px; bottom:-1px; width:11px; height:11px; border-radius:50%;
+  border:2px solid var(--surface); background:var(--ink-faint);
+}
+.status-dot.connected{ background:#22C55E; }
+.status-dot.connecting{ background:#F5A524; }
+.status-dot.reconnecting{ background:#F5A524; }
+.chat-row-text{ min-width:0; flex:1; }
+.chat-row-text .name{ font-size:14px; font-weight:700; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.chat-row-text .preview{ font-size:12.5px; color:var(--ink-faint); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-top:1px;}
+.empty-hint{ padding:26px 22px; color:var(--ink-faint); font-size:13px; line-height:1.6; text-align:center; }
+.empty-hint svg{ opacity:.5; margin-bottom:10px; }
+
+/* ============================= MAIN CHAT ============================= */
+.chat-main{ display:flex; flex-direction:column; min-width:0; min-height:0; background:var(--bg); position:relative; }
+.chat-header{
+  height:68px; flex:none; display:flex; align-items:center; gap:12px; padding:0 22px;
+  border-bottom:1px solid var(--border); background:var(--surface);
+}
+.chat-header .name{ font-weight:800; font-size:15px; }
+.chat-title-btn{ background:none; border:none; text-align:left; padding:2px 4px; border-radius:8px; min-width:0; }
+.chat-title-btn:hover{ background:var(--surface-2); }
+.chat-title-btn .name{ display:flex; align-items:center; gap:5px; }
+.chat-title-btn .name svg{ opacity:.45; flex:none; }
+.chat-header .sub{ font-size:12px; color:var(--ink-faint); }
+.chat-header-actions{ margin-left:auto; display:flex; gap:6px; }
+.icon-btn{
+  width:38px; height:38px; border-radius:12px; border:none; background:var(--surface-2); color:var(--ink-soft);
+  display:flex; align-items:center; justify-content:center; transition:.15s;
+}
+.icon-btn:hover{ background:var(--accent-soft); color:var(--accent); }
+.icon-btn.danger:hover{ background:#FEE2E2; color:#DC2626; }
+
+.messages{ flex:1; min-height:0; overflow-y:auto; padding:22px 26px; display:flex; flex-direction:column; gap:3px; }
+.msg-row{ display:flex; margin-bottom:6px; max-width:100%; }
+.msg-row.mine{ justify-content:flex-end; }
+.bubble{
+  max-width:min(480px,72%); padding:10px 14px; border-radius:18px; font-size:14.5px; line-height:1.45;
+  box-shadow:0 1px 1px rgba(20,10,40,.03);
+}
+.msg-row.mine .bubble{ background:var(--bubble-mine); color:var(--bubble-mine-ink); border-bottom-right-radius:5px; }
+.msg-row.theirs .bubble{ background:var(--bubble-theirs); color:var(--bubble-theirs-ink); border-bottom-left-radius:5px; }
+.msg-meta{ font-size:10.5px; opacity:.65; margin-top:4px; display:flex; gap:5px; align-items:center; flex-wrap:wrap;}
+.msg-badge{ font-size:9px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; padding:2px 6px; border-radius:6px; opacity:1; }
+.badge-model{ background:var(--accent-soft); color:var(--accent); }
+.badge-learned{ background:var(--accent-soft); color:var(--accent); }
+.badge-mem{ background:rgba(245,165,36,.16); color:#B9770E; }
+.badge-wiki{ background:rgba(34,197,94,.16); color:#15803D; }
+.msg-fb{ display:inline-flex; gap:4px; opacity:1; }
+.msg-fb button{ background:transparent; border:1px solid var(--border); border-radius:6px; padding:3px 6px; cursor:pointer; color:var(--ink-soft); font-family:inherit; display:inline-flex; align-items:center; justify-content:center; }
+.msg-fb button:hover{ border-color:var(--accent); color:var(--accent); }
+.msg-fb button[disabled]{ opacity:.35; cursor:default; }
+.msg-text{ white-space:pre-wrap; }
+.msg-sender{ font-size:11.5px; font-weight:800; color:var(--accent); margin-bottom:3px; }
+.bubble img.chat-img{ max-width:280px; max-height:320px; border-radius:12px; display:block; cursor:zoom-in; }
+.bubble audio{ width:230px; height:34px; }
+.file-chip{ display:flex; align-items:center; gap:10px; }
+.file-chip .fbox{ width:34px; height:34px; border-radius:9px; background:rgba(0,0,0,.12); display:flex; align-items:center; justify-content:center; flex:none;}
+.file-chip .fname{ font-weight:700; font-size:13px; }
+.file-chip .fsize{ font-size:11px; opacity:.7; }
+.system-note{ align-self:center; font-size:12px; color:var(--ink-faint); background:var(--surface-2); padding:5px 12px; border-radius:20px; margin:8px 0; }
+.typing-note{ font-size:12px; color:var(--ink-faint); padding:0 26px 6px; height:16px; }
+
+.composer{ flex:none; padding:12px 22px calc(16px + env(safe-area-inset-bottom, 0px)); background:var(--bg); }
+.composer-inner{
+  display:flex; align-items:flex-end; gap:8px; background:var(--surface); border:1px solid var(--border);
+  border-radius:20px; padding:8px 10px; box-shadow:var(--shadow-soft);
+}
+.composer textarea{
+  flex:1; border:none; outline:none; resize:none; background:transparent; color:var(--ink);
+  font-size:14.5px; max-height:120px; padding:8px 6px; line-height:1.4;
+}
+.composer .icon-btn{ background:transparent; }
+.composer .icon-btn:hover{ background:var(--surface-2); }
+.send-btn{
+  width:40px; height:40px; border-radius:50%; border:none; background:var(--accent); color:var(--accent-ink);
+  display:flex; align-items:center; justify-content:center; flex:none; transition:transform .1s;
+}
+.send-btn:active{ transform:scale(.92); }
+.send-btn:disabled{ opacity:.4; }
+.mic-btn.recording{ background:#FEE2E2; color:#DC2626; animation:pulse 1.1s infinite; }
+@keyframes pulse{ 0%,100%{ box-shadow:0 0 0 0 rgba(220,38,38,.35);} 50%{ box-shadow:0 0 0 7px rgba(220,38,38,0);} }
+
+.welcome{
+  flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+  gap:14px; padding:40px;
+}
+.welcome .blob{
+  width:130px; height:130px; border-radius:38% 62% 63% 37% / 41% 44% 56% 59%;
+  background:linear-gradient(135deg,var(--accent),var(--accent-soft)); box-shadow:var(--shadow-soft);
+}
+.welcome h2{ font-family:var(--font-display); font-size:26px; margin:0; }
+.welcome p{ color:var(--ink-soft); max-width:360px; font-size:14px; line-height:1.6; margin:0; }
+.welcome-actions{ display:flex; gap:10px; margin-top:6px; }
+.btn{
+  border:none; border-radius:14px; padding:11px 20px; font-weight:800; font-size:13.5px;
+  display:flex; align-items:center; gap:8px;
+}
+.btn.primary{ background:var(--accent); color:var(--accent-ink); }
+.btn.ghost{ background:var(--surface-2); color:var(--ink); }
+.btn:hover{ filter:brightness(1.06); }
+
+/* ============================= CALL BAR ============================= */
+.call-bar{
+  position:absolute; top:0; left:0; right:0; padding:14px 22px; background:linear-gradient(90deg,var(--accent),color-mix(in srgb,var(--accent) 60%, #8C5CF5));
+  color:#fff; display:flex; align-items:center; gap:14px; z-index:5; border-radius:0 0 18px 18px;
+}
+.call-bar .who{ font-weight:800; font-size:14px; }
+.call-bar .timer{ font-size:12.5px; opacity:.85; }
+.call-bar-actions{ margin-left:auto; display:flex; gap:8px; }
+.call-bar .icon-btn{ background:rgba(255,255,255,.18); color:#fff; }
+.call-bar .icon-btn:hover{ background:rgba(255,255,255,.3); }
+.call-bar .icon-btn.hangup{ background:#DC2626; }
+
+/* ============================= MODALS ============================= */
+.overlay{ position:fixed; inset:0; background:rgba(15,12,30,.45); display:flex; align-items:center; justify-content:center; z-index:50; padding:20px; padding-bottom:calc(20px + env(safe-area-inset-bottom, 0px)); }
+.modal{ background:var(--surface); border-radius:var(--radius-lg); width:440px; max-width:100%; max-height:86vh; max-height:86dvh; overflow-y:auto; box-shadow:var(--shadow-pop); padding:26px; }
+.modal h3{ font-family:var(--font-display); font-size:20px; margin:0 0 4px; }
+.modal .desc{ color:var(--ink-soft); font-size:13px; margin:0 0 18px; line-height:1.5; }
+.tabs{ display:flex; gap:6px; background:var(--surface-2); padding:4px; border-radius:12px; margin-bottom:16px; }
+.tab{ flex:1; border:none; background:transparent; padding:8px; border-radius:9px; font-weight:700; font-size:12.5px; color:var(--ink-soft); }
+.tab.active{ background:var(--surface); color:var(--accent); box-shadow:0 1px 3px rgba(0,0,0,.08); }
+.field-label{ font-size:12px; font-weight:800; color:var(--ink-soft); margin:14px 0 6px; text-transform:none; }
+textarea.code-area{
+  width:100%; min-height:96px; border-radius:12px; border:1px solid var(--border); background:var(--surface-2);
+  padding:11px; font-family:ui-monospace,monospace; font-size:11.5px; color:var(--ink); resize:vertical;
+}
+input.text-input{
+  width:100%; border-radius:12px; border:1px solid var(--border); background:var(--surface-2); padding:11px 13px; color:var(--ink); font-size:14px; outline:none;
+}
+.modal-actions{ display:flex; gap:8px; margin-top:18px; }
+.modal-actions .btn{ flex:1; justify-content:center; }
+.step-note{ font-size:12px; color:var(--ink-faint); margin-top:8px; line-height:1.5; }
+.close-x{ position:absolute; top:18px; right:18px; }
+.modal{ position:relative; }
+.accent-row{ display:flex; gap:10px; margin-top:8px; }
+.accent-dot{ width:30px; height:30px; border-radius:50%; border:2px solid transparent; }
+.accent-dot.selected{ border-color:var(--ink); }
+.mode-row{ display:flex; gap:10px; margin-top:10px; }
+.mode-btn{ flex:1; border:1px solid var(--border); background:var(--surface-2); border-radius:12px; padding:10px; font-weight:700; font-size:13px; color:var(--ink-soft); }
+.mode-btn.active{ border-color:var(--accent); color:var(--accent); background:var(--accent-soft); }
+
+.toast-stack{ position:fixed; bottom:20px; right:20px; display:flex; flex-direction:column; gap:8px; z-index:100; }
+.toast{ background:var(--ink); color:var(--bg); padding:11px 16px; border-radius:12px; font-size:13px; box-shadow:var(--shadow-pop); max-width:300px; }
+
+.incoming-call{
+  position:fixed; top:20px; right:20px; background:var(--surface); border-radius:18px; padding:16px 18px; box-shadow:var(--shadow-pop);
+  display:flex; align-items:center; gap:12px; z-index:90; border:1px solid var(--border);
+}
+.incoming-call .name{ font-weight:800; font-size:14px; }
+.incoming-call .sub{ font-size:12px; color:var(--ink-faint); }
+
+.mobile-menu-btn{
+  display:none; position:fixed; top:14px; left:14px; z-index:46; width:42px; height:42px; border-radius:13px;
+  border:none; background:var(--surface); color:var(--ink); box-shadow:var(--shadow-soft); align-items:center; justify-content:center;
+}
+.nav-scrim{ display:none; position:fixed; inset:0; background:rgba(10,8,20,.45); z-index:38; }
+
+@media (max-width:860px){
+  #app{ display:block; height:100vh; height:100dvh; }
+  .chat-main{ height:100vh; height:100dvh; }
+  .welcome{ overflow-y:auto; padding-top:76px; }
+  .messages{ padding-top:4px; }
+  .chat-header{ padding-left:64px; }
+  .mobile-menu-btn{ display:flex; }
+  .rail{ display:none; }
+  .sidebar{
+    position:fixed; top:0; bottom:0; left:0; width:min(320px, 86vw); z-index:40;
+    transform:translateX(-105%); transition:transform .22s ease; box-shadow:var(--shadow-pop);
+  }
+  body.nav-open .sidebar{ transform:translateX(0); }
+  body.nav-open .nav-scrim{ display:block; }
+  body.nav-open .mobile-menu-btn{ display:none; }
+  .sidebar-close-btn{ display:flex !important; }
+}
+
+/* ---- avatar picker modal ---- */
+.avatar-picker-preview{
+  width:88px; height:88px; border-radius:50%; margin:4px auto 18px; overflow:hidden; position:relative;
+  background:var(--surface-2); display:flex; align-items:center; justify-content:center; font-size:28px;
+  font-family:var(--font-display); font-weight:700; color:var(--ink-faint); border:2px dashed var(--border);
+}
+.avatar-picker-preview img{ width:100%; height:100%; object-fit:cover; }
+.link-btn{ background:none; border:none; color:var(--accent); font-weight:800; font-size:12.5px; padding:6px 2px; text-decoration:underline; }
+.upload-drop{
+  border:1.5px dashed var(--border); border-radius:12px; padding:16px; text-align:center; color:var(--ink-soft);
+  font-size:13px; cursor:pointer; background:var(--surface-2);
+}
+.upload-drop:hover{ border-color:var(--accent); color:var(--accent); }
+.code-reveal{ margin-top:10px; }
+.faq-list{ display:flex; flex-direction:column; gap:8px; }
+.faq-item{ border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+.faq-q{
+  width:100%; text-align:left; background:var(--surface-2); border:none; padding:12px 14px; font-weight:700;
+  font-size:13.5px; color:var(--ink); display:flex; justify-content:space-between; align-items:center; gap:8px;
+}
+.faq-caret{ transition:transform .18s; color:var(--ink-faint); }
+.faq-q.open .faq-caret{ transform:rotate(180deg); }
+.faq-a{ padding:12px 14px; font-size:13px; color:var(--ink-soft); line-height:1.6; background:var(--surface); }
+
+/* Pip specific styling integration */
+.logo{width:48px;height:48px;flex:none;overflow:visible}
+.logo .body{fill:var(--sky);stroke:var(--sky-deep);stroke-width:3}
+.logo .leaf{fill:var(--mint-deep)}
+.logo .eye{fill:var(--ink)}
+.logo .cheek{fill:#F7C4BC;opacity:.8}
+.logo .mouth{fill:none;stroke:var(--ink);stroke-width:3.5;stroke-linecap:round}
+.logo .m-think,.logo .m-err,.logo .e-err{display:none}
+.logo .figure{transform-box:fill-box;transform-origin:50% 60%}
+.logo[data-mood=thinking] .m-idle,.logo[data-mood=error] .m-idle,.logo[data-mood=error] .e-ok{display:none}
+.logo[data-mood=thinking] .m-think,.logo[data-mood=error] .m-err,.logo[data-mood=error] .e-err{display:block}
+.logo[data-mood=thinking] .figure{animation:pulse-pip 1.8s ease-in-out infinite}
+.logo[data-mood=error] .figure{animation:wobble .7s ease 1}
+.logo[data-mood=error] .body{fill:#F6E3DC;stroke:#E1A99B}
+@keyframes pulse-pip{50%{transform:scale(1.06)}}
+@keyframes wobble{20%{transform:rotate(-6deg)}50%{transform:rotate(5deg)}80%{transform:rotate(-2deg)}}
+.note{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:12px 16px;border-radius:var(--r);background:var(--err);color:var(--err-ink);border:2px solid #F0C7BA;margin:8px 0;}
+.note span{flex:1 1 220px}
+.note button{min-height:44px;padding:0 18px;border-radius:var(--r);background:var(--paper);border:2px solid #E1A99B;font-family:var(--head);font-weight:500}
+</style>
+</head>
+<body>
+
+<button class="mobile-menu-btn" id="mobileMenuBtn" title="Menu" aria-label="Open menu">
+  <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+</button>
+<div class="nav-scrim" id="navScrim"></div>
+
+<div id="app">
+  <nav class="rail">
+    <div class="rail-logo">D</div>
+    <button class="rail-btn active" title="Chats" id="navChats">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H8l-4 4V5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+    </button>
+  </nav>
+
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <div class="sidebar-head-row">
+        <h1>Driftline</h1>
+        <div class="head-actions">
+          <button class="avatar-btn" id="avatarBtn" title="Your photo">?</button>
+          <button class="icon-btn" id="navHelp" title="Help / FAQ">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="2"/><path d="M9.5 9.3a2.5 2.5 0 114.2 2c-.6.6-1.7 1-1.7 2.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="16.7" r="0.9" fill="currentColor"/></svg>
+          </button>
+          <button class="icon-btn" id="navInstall" title="Install app" style="display:none;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 4v11M12 15l-4-4M12 15l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 17v2a2 2 0 002 2h10a2 2 0 002-2v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <button class="icon-btn" id="navTheme" title="Appearance">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="10" r="1.3" fill="currentColor"/><circle cx="14.5" cy="8.5" r="1.3" fill="currentColor"/><circle cx="16" cy="13.5" r="1.3" fill="currentColor"/><circle cx="10" cy="15" r="1.3" fill="currentColor"/></svg>
+          </button>
+          <button class="icon-btn sidebar-close-btn" id="sidebarCloseBtn" title="Close menu" style="display:none;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="name-field">
+        <span>You</span>
+        <input id="nameInput" placeholder="Type your name…" maxlength="24">
+      </div>
+    </div>
+    <div class="sidebar-actions">
+      <button class="pill-btn" id="btnNewChat">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        New chat
+      </button>
+      <button class="pill-btn" id="btnNewGroup">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="10" r="2.4" stroke="currentColor" stroke-width="2"/><path d="M3.5 19c.6-3.3 2.9-5 5.5-5s4.9 1.7 5.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        New group
+      </button>
+      <button class="pill-btn" id="btnStreamingBand" style="border-style: solid; background: var(--accent-soft); color: var(--accent); border-color: var(--accent);">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3" fill="currentColor"/><circle cx="18" cy="16" r="3" fill="currentColor"/></svg>
+        Streaming Band
+      </button>
+    </div>
+    <a class="explore-btn" href="search.html" target="_blank" rel="noopener" title="Opens the web search tool in a new tab">
+      <span class="explore-icon">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2.2"/><path d="m20 20-3.4-3.4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </span>
+      <span class="explore-text">
+        <span class="explore-title">Search the web</span>
+        <span class="explore-sub">Opens in a new tab</span>
+      </span>
+      <svg class="explore-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <div class="chat-list" id="chatList">
+      <div class="empty-hint" id="emptyHint">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H8l-4 4V5z" stroke="currentColor" stroke-width="1.6"/></svg>
+        <div>No chats yet. Start one with <b>New chat</b> — you'll get a code to share with someone, no account needed.</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="chat-main" id="chatMain">
+    <div class="welcome" id="welcome">
+      <div class="blob" id="welcomeBlob" style="background: linear-gradient(135deg,var(--accent),var(--accent-soft)); cursor: pointer;" title="Tap to change blob color"></div>
+      <h2>Just you, them, and the wire</h2>
+      <p>Driftline connects two browsers directly — no accounts, no server storing your messages. Share a connection code to start a chat, or gather a few people into a group.</p>
+      <div class="welcome-actions">
+        <button class="btn primary" id="welcomeNewChat">Start a chat</button>
+        <button class="btn ghost" id="welcomeNewGroup">Create a group</button>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Driftline Crayon Streaming Band Overlay Modal or Integration Container -->
+<dialog id="streamingBandDialog" style="border:1px solid var(--border); background:var(--surface); color:var(--ink); border-radius:20px; width:min(900px, calc(100vw - 32px)); height:min(750px, calc(100vh - 40px)); padding:0; overflow:hidden; box-shadow:var(--shadow-pop);">
+  <div style="display:flex; align-items:center; justify-content:space-between; padding:16px 20px; border-bottom:1px solid var(--border); background:var(--surface-2);">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <svg width="24" height="24" viewBox="0 0 34 34" aria-hidden="true">
+        <rect x="3" y="6" width="6" height="22" rx="3" fill="#ff6b5e"/>
+        <rect x="12" y="2" width="6" height="30" rx="3" fill="#ffb340"/>
+        <rect x="21" y="9" width="6" height="16" rx="3" fill="#2ec4b6"/>
+        <rect x="30" y="13" width="3" height="8" rx="1.5" fill="#9aa1b2"/>
+      </svg>
+      <span style="font-weight:800; font-size:15px;">Driftline Crayon Streaming Band</span>
+    </div>
+    <button class="icon-btn" id="closeStreamingBand" title="Close">${svgClose()}</button>
+  </div>
+  <iframe id="streamingBandFrame" src="about:blank" style="width:100%; height:calc(100% - 61px); border:0; background:#0e0f13;"></iframe>
+</dialog>
+
+<div id="modalRoot"></div>
+<div id="toastStack" class="toast-stack"></div>
+<audio id="remoteAudioSink" autoplay></audio>
+
+<script>
+(() => {
+"use strict";
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+const $  = (sel, el=document) => el.querySelector(sel);
+const $$ = (sel, el=document) => Array.from(el.querySelectorAll(sel));
+const uid = () => (crypto.randomUUID ? crypto.randomUUID() : 'id-'+Math.random().toString(36).slice(2)+Date.now());
+const esc = (s) => (s==null?'':String(s)).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const b64encode = (obj) => btoa(unescape(encodeURIComponent(JSON.stringify(obj))));
+const b64decode = (str) => JSON.parse(decodeURIComponent(escape(atob(str.trim()))));
+function bytesToBase64(bytes){ let bin=''; for (let i=0;i<bytes.length;i++) bin+=String.fromCharCode(bytes[i]); return btoa(bin); }
+function base64ToBytes(b64){ const bin=atob(b64); const bytes=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) bytes[i]=bin.charCodeAt(i); return bytes; }
+async function packCode(obj){
+  const json = JSON.stringify(obj);
+  if (typeof CompressionStream === 'function'){
+    try{
+      const cs = new CompressionStream('gzip');
+      const writer = cs.writable.getWriter();
+      writer.write(new TextEncoder().encode(json));
+      writer.close();
+      const buf = await new Response(cs.readable).arrayBuffer();
+      return 'g' + bytesToBase64(new Uint8Array(buf));
+    }catch(e){ /* fall through */ }
+  }
+  return 'p' + b64encode(obj);
+}
+async function unpackCode(str){
+  str = str.trim();
+  const tag = str[0], rest = str.slice(1);
+  if (tag === 'g' && typeof DecompressionStream === 'function'){
+    const ds = new DecompressionStream('gzip');
+    const writer = ds.writable.getWriter();
+    writer.write(base64ToBytes(rest));
+    writer.close();
+    const buf = await new Response(ds.readable).arrayBuffer();
+    return JSON.parse(new TextDecoder().decode(buf));
+  }
+  if (tag === 'p') return b64decode(rest);
+  return b64decode(str);
+}
+const fmtTime = (ts) => new Date(ts).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+const fmtBytes = (n) => n < 1024 ? n+' B' : n < 1048576 ? (n/1024).toFixed(1)+' KB' : (n/1048576).toFixed(1)+' MB';
+const initials = (name) => (name||'?').trim().split(/\s+/).map(w=>w[0]).slice(0,2).join('').toUpperCase() || '?';
+const colorFor = (seed) => {
+  const palette = ['#4C6FFF','#8C5CF5','#F5559B','#1FB574','#FF8A3D','#0EA5B7','#E15252'];
+  let h = 0; for (const c of String(seed)) h = (h*31 + c.charCodeAt(0)) >>> 0;
+  return palette[h % palette.length];
+};
+function toast(msg){
+  const stack = $('#toastStack');
+  const el = document.createElement('div');
+  el.className = 'toast'; el.textContent = msg;
+  stack.appendChild(el);
+  setTimeout(()=>{ el.style.transition='opacity .4s'; el.style.opacity='0'; setTimeout(()=>el.remove(),400); }, 3200);
+}
+async function copyText(text){
+  try{ await navigator.clipboard.writeText(text); return true; }
+  catch(e){
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); }catch(e2){}
+    ta.remove();
+    return true;
+  }
+}
+
+const STUN_SERVERS = [{ urls: ['stun:stun.l.google.com:19302','stun:stun1.l.google.com:19302'] }];
+const FILE_CHUNK_SIZE = 14000;
+const FILE_MAX_BYTES  = 30 * 1024 * 1024;
+
+/* ============================================================
+   STATE
+   ============================================================ */
+const state = {
+  profile: { id: uid(), name: '', avatarUrl: '' },
+  peers: new Map(),
+  chats: new Map(),
+  activeChatId: null,
+  incomingFiles: new Map(),
+  theme: { mode: 'light', accent: 'blue' },
+  call: null,
+};
+
+function myColor(){ return colorFor(state.profile.id); }
+
+function avatarInner(name, avatarUrl, isGroup){
+  if (avatarUrl) return `<img src="${esc(avatarUrl)}" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">${isGroup?svgGroup():esc(initials(name))}</span>`;
+  return isGroup ? svgGroup() : esc(initials(name));
+}
+
+/* ============================================================
+   RENDER: SIDEBAR
+   ============================================================ */
+function renderRailAvatar(){
+  const btn = $('#avatarBtn');
+  if (!btn) return;
+  btn.innerHTML = avatarInner(state.profile.name || '?', state.profile.avatarUrl, false);
+  btn.style.background = colorFor(state.profile.id);
+}
+
+function renderChatList(){
+  const list = $('#chatList');
+  const chats = Array.from(state.chats.values()).sort((a,b)=> (b.lastActivity||0)-(a.lastActivity||0));
+  const botIdx = chats.findIndex(c => c.type==='bot');
+  if (botIdx > 0){ const [b] = chats.splice(botIdx,1); chats.unshift(b); }
+  if (chats.length === 0){
+    list.innerHTML = `<div class="empty-hint" id="emptyHint">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H8l-4 4V5z" stroke="currentColor" stroke-width="1.6"/></svg>
+      <div>No chats yet. Start one with <b>New chat</b> — you'll get a code to share with someone, no account needed.</div>
+    </div>`;
+    return;
+  }
+  list.innerHTML = chats.map(chat => {
+    const last = chat.messages[chat.messages.length-1];
+    let preview = chat.type==='bot' ? 'Ready to chat' : 'Say hello 👋';
+    if (last){
+      if (last.kind==='text') preview = (last.mine?'You: ':'') + last.text;
+      else if (last.kind==='image') preview = (last.mine?'You: ':'') + '📷 Photo';
+      else if (last.kind==='file') preview = (last.mine?'You: ':'') + '📎 ' + last.name;
+      else if (last.kind==='audio') preview = (last.mine?'You: ':'') + '🎤 Voice message';
+      else if (last.kind==='system') preview = last.text;
+    }
+    let status = 'connecting';
+    if (chat.type==='bot'){
+      status = 'connected';
+    } else if (chat.type==='direct'){
+      const p = state.peers.get(chat.peerId);
+      status = p ? p.status : 'connecting';
+    } else {
+      const anyUp = Array.from(chat.memberIds).some(pid => { const p = state.peers.get(pid); return p && p.status==='connected'; });
+      status = chat.isHost ? (chat.memberIds.size ? (anyUp?'connected':'connecting') : 'connecting')
+                            : ((state.peers.get(chat.hostPeerId)||{}).status || 'connecting');
+    }
+    const col = chat.type==='bot' ? '#7b6cf0' : colorFor(chat.id);
+    return `<div class="chat-row ${chat.id===state.activeChatId?'active':''}" data-chat="${chat.id}">
+      <div class="avatar ${chat.type==='group'?'group':''}" style="background:${col}">
+        ${avatarInner(chat.name, chat.avatarUrl, chat.type==='group')}
+        <span class="status-dot ${status}"></span>
+      </div>
+      <div class="chat-row-text">
+        <div class="name">${esc(chat.name)}</div>
+        <div class="preview">${esc(preview)}</div>
+      </div>
+    </div>`;
+  }).join('');
+  $$('.chat-row', list).forEach(row => row.addEventListener('click', () => setActiveChat(row.dataset.chat)));
+}
+function svgGroup(){ return `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="9" r="3" stroke="white" stroke-width="2"/><circle cx="17" cy="10" r="2.2" stroke="white" stroke-width="2"/><path d="M3.5 19c.6-3.3 2.9-5 5.5-5s4.9 1.7 5.5 5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>`; }
+
+/* ============================================================
+   RENDER: MAIN CHAT
+   ============================================================ */
+function setActiveChat(chatId){
+  state.activeChatId = chatId;
+  renderChatList();
+  renderChatMain();
+  document.body.classList.remove('nav-open');
+}
+
+function renderChatMain(){
+  const main = $('#chatMain');
+  const chat = state.chats.get(state.activeChatId);
+  if (!chat){
+    main.innerHTML = `<div class="welcome"><div class="blob" id="welcomeBlob" style="background: linear-gradient(135deg,var(--accent),var(--accent-soft)); cursor: pointer;" title="Tap to change blob color"></div>
+      <h2>Just you, them, and the wire</h2>
+      <p>Driftline connects two browsers directly — no accounts, no server storing your messages. Share a connection code to start a chat, or gather a few people into a group.</p>
+      <div class="welcome-actions">
+        <button class="btn primary" id="welcomeNewChat">Start a chat</button>
+        <button class="btn ghost" id="welcomeNewGroup">Create a group</button>
+      </div></div>`;
+    $('#welcomeNewChat').onclick = () => openNewChatModal();
+    $('#welcomeNewGroup').onclick = () => openNewGroupModal();
+    setupWelcomeBlobColorPreference();
+    return;
+  }
+
+  const col = chat.type==='bot' ? '#7b6cf0' : colorFor(chat.id);
+  const subtitle = chat.type==='bot' ? 'Cozy chat friend · always here'
+    : chat.type==='group' ? `${chat.memberIds.size+1} ${chat.memberIds.size===0?'person':'people'} in this group`
+    : peerStatusLabel(chat.peerId);
+
+  const isBot = chat.type === 'bot';
+
+  main.innerHTML = `
+    <div class="chat-header">
+      ${isBot ? `
+      <svg class="logo" id="pipHeaderLogo" viewBox="0 0 100 100" role="img" aria-label="Pip" data-mood="idle" style="width:38px;height:38px;flex:none;">
+        <g class="figure">
+          <path class="leaf" d="M50 15C47 6 52 0 60 0c0 8-3 13-10 15z"/>
+          <path class="body" d="M50 14c20 0 36 15 36 37 0 21-16 36-36 36S14 72 14 51c0-22 16-37 36-37z"/>
+          <g class="e-ok">
+            <circle class="eye" cx="37" cy="47" r="4.8"/>
+            <circle class="eye" cx="63" cy="47" r="4.8"/>
+          </g>
+          <g class="e-err">
+            <path class="mouth" d="M31 49q6-6 12 0"/>
+            <path class="mouth" d="M57 49q6-6 12 0"/>
+          </g>
+          <circle class="cheek" cx="28" cy="60" r="5.5"/>
+          <circle class="cheek" cx="72" cy="60" r="5.5"/>
+          <path class="mouth m-idle" d="M40 61q10 10 20 0"/>
+          <circle class="mouth m-think" cx="50" cy="64" r="3.6"/>
+          <path class="mouth m-err" d="M41 68q9-8 18 0"/>
+        </g>
+      </svg>
+      ` : `
+      <button class="avatar avatar-clickable ${chat.type==='group'?'group':''}" id="chatHeaderAvatar" style="background:${col};width:38px;height:38px;" title="Change photo">${avatarInner(chat.name, chat.avatarUrl, chat.type==='group')}</button>
+      `}
+      <button class="chat-title-btn" id="chatRenameBtn" title="Rename" ${isBot ? 'style="cursor:default;"' : ''}>
+        <div class="name">${esc(chat.name)} ${isBot ? '' : svgPencil()}</div>
+        <div class="sub" id="chatSub">${esc(subtitle)}</div>
+      </button>
+      <div class="chat-header-actions">
+        ${chat.type==='bot' ? `
+        <button class="icon-btn" id="btnPipNewPage" title="New page">${svgRefresh()}</button>` :
+        chat.type==='direct' ? `
+        <button class="icon-btn" id="btnAudioCall" title="Voice call">${svgPhone()}</button>
+        <button class="icon-btn" id="btnVideoCall" title="Video call">${svgVideo()}</button>` : `
+        <button class="icon-btn" id="btnInviteMember" title="Invite someone">${svgUserPlus()}</button>`}
+      </div>
+    </div>
+    <div class="messages" id="messages"></div>
+    <div class="typing-note" id="typingNote"></div>
+    <div class="composer">
+      <div class="composer-inner">
+        ${chat.type!=='bot' ? `<button class="icon-btn" id="btnAttach" title="Send a file or image">${svgPaperclip()}</button>` : ''}
+        <textarea id="composerInput" rows="1" placeholder="${isBot ? 'Write a message here' : 'Message ' + chat.name + '…'}"></textarea>
+        ${chat.type!=='bot' ? `<button class="icon-btn mic-btn" id="btnMic" title="Record a voice message">${svgMic()}</button>` : ''}
+        <button class="send-btn" id="btnSend" title="Send">${svgSend()}</button>
+        ${chat.type==='bot' ? `<button type="button" id="stopPipBtn" class="send-btn stop" aria-label="Stop writing" style="display:none;background:var(--peach);color:var(--err-ink);border:2px solid #F0C7BA;" hidden><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="3" fill="currentColor"/></svg></button>` : ''}
+      </div>
+    </div>
+    <input type="file" id="fileInput" hidden>
+  `;
+  renderMessages();
+  wireComposer(chat);
+
+  if (!isBot) {
+    $('#chatHeaderAvatar').onclick = () => openChatAvatarModal(chat.id);
+    $('#chatRenameBtn').onclick = () => openRenameModal(chat.id);
+  }
+
+  if (chat.type==='bot'){
+    $('#btnPipNewPage').onclick = () => {
+      PipBot.newConversation();
+    };
+  } else if (chat.type==='direct'){
+    $('#btnAudioCall').onclick = () => requestCall(chat.peerId, 'audio');
+    $('#btnVideoCall').onclick = () => requestCall(chat.peerId, 'video');
+  } else {
+    $('#btnInviteMember').onclick = () => openInviteToGroupModal(chat.id);
+  }
+
+  if (state.call && (state.call.chatId === chat.id)) renderCallBar();
+}
+
+function setupWelcomeBlobColorPreference(){
+  const blob = $('#welcomeBlob');
+  if (!blob) return;
+  const colors = [
+    'linear-gradient(135deg,#ff6b5e,#ffb340)',
+    'linear-gradient(135deg,#4C6FFF,#8C5CF5)',
+    'linear-gradient(135deg,#F5559B,#8C5CF5)',
+    'linear-gradient(135deg,#1FB574,#2ec4b6)',
+    'linear-gradient(135deg,#FF8A3D,#ff6b5e)'
+  ];
+  let idx = 0;
+  blob.addEventListener('click', () => {
+    idx = (idx + 1) % colors.length;
+    blob.style.background = colors[idx];
+    toast('Blob color updated!');
+  });
+}
+
+function peerStatusLabel(peerId){
+  const p = state.peers.get(peerId);
+  if (!p) return 'Offline';
+  if (p.status==='connected') return 'Online';
+  if (p.status==='connecting') return 'Connecting…';
+  if (p.status==='reconnecting') return 'Reconnecting…';
+  return 'Offline';
+}
+
+function scrollMessagesToBottom(){
+  const box = $('#messages'); if (box) box.scrollTop = box.scrollHeight;
+}
+
+function renderMessages(){
+  const box = $('#messages');
+  const chat = state.chats.get(state.activeChatId);
+  if (!box || !chat) return;
+  box.innerHTML = chat.messages.map(m => renderMessage(chat, m)).join('');
+  $$('.chat-img', box).forEach(img => img.addEventListener('click', () => window.open(img.src, '_blank')));
+  scrollMessagesToBottom();
+}
+
+function renderMessage(chat, m){
+  if (m.kind === 'system'){
+    return `<div class="system-note">${esc(m.text)}</div>`;
+  }
+  if (chat.type==='bot' && !m.mine && m.streaming){
+    return `<div class="msg-row theirs"><div class="bubble"><span class="msg-text">${esc(m.text)}</span></div></div>`;
+  }
+  const showSender = chat.type==='group' && !m.mine;
+  let inner = '';
+  if (m.kind === 'text') inner = esc(m.text).replace(/\n/g,'<br>');
+  else if (m.kind === 'image') inner = `<img class="chat-img" src="${m.dataUrl}" alt="${esc(m.name||'image')}">`;
+  else if (m.kind === 'audio') inner = `<audio controls src="${m.dataUrl}"></audio>`;
+  else if (m.kind === 'file') inner = `<div class="file-chip"><div class="fbox">${svgFile()}</div><div><div class="fname">${esc(m.name)}</div><div class="fsize">${fmtBytes(m.size||0)}</div></div></div>` +
+      (m.dataUrl ? `<div style="margin-top:6px"><a href="${m.dataUrl}" download="${esc(m.name)}" style="color:inherit;font-size:12px;font-weight:800;text-decoration:underline;">Download</a></div>` : '');
+  
+  return `<div class="msg-row ${m.mine?'mine':'theirs'}">
+    <div class="bubble">
+      ${showSender ? `<div class="msg-sender">${esc(m.senderName||'Someone')}</div>` : ''}
+      ${inner}
+      <div class="msg-meta">${fmtTime(m.ts)}</div>
+    </div>
+  </div>`;
+}
+
+function svgPhone(){ return `<svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M6 3l3 1 1 4-2 2c1 2.5 3.5 5 6 6l2-2 4 1 1 3c0 1.5-1.5 3-3 3-8 0-15-7-15-15 0-1.5 1.5-3 3-3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>`; }
+function svgVideo(){ return `<svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="12" height="12" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M15 10l6-3v10l-6-3" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>`; }
+function svgUserPlus(){ return `<svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="9" r="3.3" stroke="currentColor" stroke-width="1.8"/><path d="M3 20c.7-3.8 3-5.8 6-5.8s5.3 2 6 5.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M19 8v6M16 11h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`; }
+function svgPaperclip(){ return `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M16.5 7.5l-7 7a3 3 0 004.2 4.2l7-7a5 5 0 00-7-7l-7.1 7.1a7 7 0 009.9 9.9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`; }
+function svgMic(){ return `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="9" y="3" width="6" height="11" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M5 11a7 7 0 0014 0M12 18v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`; }
+function svgSend(){ return `<svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l16-8-6 16-3-6-7-2z" fill="currentColor"/></svg>`; }
+function svgFile(){ return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 3h7l5 5v13H7z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`; }
+function svgMicSmall(){ return `<svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="9" y="3" width="6" height="11" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M5 11a7 7 0 0014 0M12 18v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`; }
+function svgHangup(){ return `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 15c5-4 13-4 18 0l-2.3 3.2a1.5 1.5 0 01-1.9.3l-2.3-1.4a1.5 1.5 0 01-.7-1.4l.1-1.4c-1.2-.3-2.5-.3-3.8 0l.1 1.4a1.5 1.5 0 01-.7 1.4l-2.3 1.4a1.5 1.5 0 01-1.9-.3z" fill="currentColor"/></svg>`; }
+function svgRefresh(){ return `<svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M21 3v5h-5M3 21v-5h5M21 12a9 9 0 01-15 6.7L3 21M3 12a9 9 0 0115-6.7L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`; }
+
+/* ============================================================
+   COMPOSER (text / files / voice)
+   ============================================================ */
+function wireComposer(chat){
+  const input = $('#composerInput');
+  const sendBtn = $('#btnSend');
+  const stopPipBtn = $('#stopPipBtn');
+  const fileInput = $('#fileInput');
+  let typingTimer = null;
+
+  const updateSendEnabled = () => {
+    if (chat.type === 'bot') {
+      sendBtn.disabled = !input.value.trim() || PipBot.isBusy();
+    } else {
+      sendBtn.disabled = !input.value.trim();
+    }
+  };
+  updateSendEnabled();
+
+  const doSend = () => {
+    const text = input.value.trim();
+    if (!text) return;
+    if (chat.type === 'bot') {
+      input.value = '';
+      autoGrow(input);
+      updateSendEnabled();
+      PipBot.send(text);
+    } else {
+      sendTextMessage(chat.id, text);
+      input.value = '';
+      autoGrow(input);
+      updateSendEnabled();
+    }
+  };
+
+  input.addEventListener('input', () => {
+    autoGrow(input);
+    updateSendEnabled();
+    if (chat.type!=='bot' && !typingTimer){
+      broadcastToChat(chat.id, { type:'typing', senderId: state.profile.id, senderName: state.profile.name||'Someone' });
+    }
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(()=> typingTimer=null, 1800);
+  });
+  input.addEventListener('keydown', (e) => {
+    if (e.key==='Enter' && !e.shiftKey){ e.preventDefault(); doSend(); }
+  });
+  sendBtn.addEventListener('click', doSend);
+  if (stopPipBtn) {
+    stopPipBtn.addEventListener('click', () => {
+      PipBot.stop();
+    });
+  }
+
+  if (chat.type!=='bot'){
+    $('#btnAttach').addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', () => {
+      const f = fileInput.files[0];
+      if (f) sendFileMessage(chat.id, f);
+      fileInput.value = '';
+    });
+    wireMic(chat.id);
+  }
+}
+function autoGrow(ta){ ta.style.height='auto'; ta.style.height=Math.min(120, ta.scrollHeight)+'px'; }
+
+let mediaRecorder = null, recordedChunks = [];
+function wireMic(chatId){
+  const micBtn = $('#btnMic');
+  micBtn.addEventListener('click', async () => {
+    if (mediaRecorder && mediaRecorder.state==='recording'){
+      mediaRecorder.stop();
+      return;
+    }
+    try{
+      const stream = await navigator.mediaDevices.getUserMedia({ audio:true });
+      recordedChunks = [];
+      mediaRecorder = new MediaRecorder(stream);
+      mediaRecorder.ondataavailable = e => { if (e.data.size>0) recordedChunks.push(e.data); };
+      mediaRecorder.onstop = () => {
+        stream.getTracks().forEach(t=>t.stop());
+        micBtn.classList.remove('recording');
+        const blob = new Blob(recordedChunks, { type:'audio/webm' });
+        if (blob.size > 200) sendVoiceMessage(chatId, blob);
+      };
+      mediaRecorder.start();
+      micBtn.classList.add('recording');
+      toast('Recording… click the mic again to send');
+    }catch(err){
+      toast('Microphone access was blocked or unavailable');
+    }
+  });
+}
+
+/* ============================================================
+   MESSAGE SENDING (protocol + local echo)
+   ============================================================ */
+function addLocalMessage(chatId, msg){
+  const chat = state.chats.get(chatId);
+  if (!chat) return;
+  chat.messages.push(msg);
+  chat.lastActivity = Date.now();
+  if (chatId===state.activeChatId) { renderMessages(); }
+  renderChatList();
+}
+
+function envelopeForChat(chat, base){
+  const env = Object.assign({ id: uid(), ts: Date.now(), senderId: state.profile.id, senderName: state.profile.name||'Someone' }, base);
+  if (chat.type==='group') { env.chatKind='group'; env.groupId=chat.id; }
+  else env.chatKind='direct';
+  return env;
+}
+
+function broadcastToChat(chatId, payload){
+  const chat = state.chats.get(chatId);
+  if (!chat) return;
+  const env = envelopeForChat(chat, payload);
+  routeOutgoing(chat, env);
+}
+
+function routeOutgoing(chat, env){
+  if (chat.type==='direct'){
+    sendToPeer(chat.peerId, env);
+  } else if (chat.type==='group'){
+    if (chat.isHost){
+      chat.memberIds.forEach(pid => sendToPeer(pid, env));
+    } else {
+      sendToPeer(chat.hostPeerId, env);
+    }
+  }
+}
+
+function sendTextMessage(chatId, text){
+  const chat = state.chats.get(chatId);
+  const env = envelopeForChat(chat, { type:'chat', kind:'text', text });
+  routeOutgoing(chat, env);
+  addLocalMessage(chatId, { kind:'text', text, ts:env.ts, mine:true, senderName:'You' });
+}
+
+/* ============================================================
+   PIP BOT INTEGRATION (script.js adaptation)
+   ============================================================ */
+const PipBot = (function(){
+  const ENDPOINT = 'https://text.pollinations.ai/openai';
+  const MODEL = 'openai';
+  const SYSTEM = 'You are Pip, a warm, gentle and playful chat friend. Use simple, clear words and short paragraphs. Be kind and encouraging. Never use emojis or emoticons. Be accurate when giving facts or instructions.';
+  const MAX_HISTORY = 16;
+  const IDLE_TIMEOUT = 30000;
+
+  let history = [], controller = null, busy = false, userStopped = false;
+
+  const EMOJI = /[\p{Extended_Pictographic}\u200d\ufe0f\u20e3]/gu;
+  const ADS = /\n*(?:-{3,}\s*\n)?\**\s*(?:Powered by|Support) Pollinations[\s\S]*$/i;
+  const clean = (t) => t.replace(ADS, '').replace(EMOJI, '');
+
+  const MESSAGES = {
+    offline: 'It looks like your connection is taking a break. Check your internet, and we will try again together.',
+    busy: 'Pip has been chatting a lot and needs a short rest. Please wait a moment, then try again.',
+    server: 'Pip is tidying up some pages behind the scenes. Give it a moment, then try again.',
+    silent: 'Pip got a little shy and did not say anything. Let us try that message once more.',
+    generic: 'Oops! The internet took a little nap. Let us try sending that message again.'
+  };
+
+  function setMood(mood, label) {
+    const logoEl = document.getElementById('pipHeaderLogo');
+    const subEl = document.getElementById('chatSub');
+    if (logoEl) logoEl.dataset.mood = mood;
+    if (subEl) subEl.textContent = label;
+  }
+
+  function setBusy(on) {
+    busy = on;
+    const sendBtn = $('#btnSend');
+    const stopBtn = $('#stopPipBtn');
+    const input = $('#composerInput');
+    if (sendBtn && stopBtn) {
+      sendBtn.hidden = on;
+      stopBtn.hidden = !on;
+    }
+    if (input) input.disabled = false;
+  }
+
+  function errorFor(err) {
+    if (!navigator.onLine) return MESSAGES.offline;
+    if (err && err.silent) return MESSAGES.silent;
+    const s = err && err.status;
+    if (s === 429 || s === 402) return MESSAGES.busy;
+    if (s >= 500) return MESSAGES.server;
+    return MESSAGES.generic;
+  }
+
+  async function ask() {
+    setBusy(true);
+    userStopped = false;
+    setMood('thinking', 'Pip is thinking');
+    const chat = state.chats.get('bot-pip');
+    if (!chat) return;
+
+    const msgId = uid();
+    const msg = { id: msgId, kind:'text', text: '', ts: Date.now(), mine:false, senderName:'Pip', streaming: true };
+    chat.messages.push(msg);
+    renderMessages();
+
+    controller = new AbortController();
+    let timer;
+    const arm = () => { clearTimeout(timer); timer = setTimeout(() => controller.abort(), IDLE_TIMEOUT); };
+    let full = '';
+    let started = false;
+
+    try {
+      arm();
+      const res = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: MODEL,
+          stream: true,
+          messages: [{ role: 'system', content: SYSTEM }, ...history.slice(-MAX_HISTORY)]
+        }),
+        signal: controller.signal
+      });
+      if (!res.ok || !res.body) throw { status: res.status };
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
+
+      for (;;) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        arm();
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop();
+        for (const raw of lines) {
+          const line = raw.trim();
+          if (!line.startsWith('data:')) continue;
+          const payload = line.slice(5).trim();
+          if (!payload || payload === '[DONE]') continue;
+          let json;
+          try { json = JSON.parse(payload); } catch (e) { continue; }
+          const delta = json.choices && json.choices[0] && json.choices[0].delta;
+          if (delta && delta.content) {
+            full += delta.content;
+            const shown = clean(full);
+            if (shown.trim()) {
+              if (!started) { started = true; setMood('idle', 'Pip is writing'); }
+              msg.text = shown;
+              renderMessages();
+            }
+          }
+        }
+      }
+
+      const finalText = clean(full).trim();
+      if (!finalText) throw { silent: true };
+      msg.text = finalText;
+      msg.streaming = false;
+      history.push({ role: 'assistant', content: finalText });
+      setMood('idle', 'Cozy chat friend · always here');
+      renderMessages();
+    } catch (err) {
+      const partial = clean(full).trim();
+      if (userStopped) {
+        if (partial) {
+          msg.text = partial;
+          msg.streaming = false;
+          history.push({ role: 'assistant', content: partial });
+        } else {
+          chat.messages = chat.messages.filter(m => m.id !== msgId);
+        }
+        setMood('idle', 'Cozy chat friend · always here');
+        renderMessages();
+      } else {
+        chat.messages = chat.messages.filter(m => m.id !== msgId);
+        setMood('error', 'Pip needs a moment');
+        showPipNote(errorFor(err));
+      }
+    } finally {
+      clearTimeout(timer;
+      controller = null;
+      setBusy(false);
+      renderMessages();
+    }
+  }
+
+  function showPipNote(message) {
+    const box = $('#messages');
+    if (!box) return;
+    const note = document.createElement('div');
+    note.className = 'note';
+    note.setAttribute('role', 'alert');
+    const p = document.createElement('span');
+    p.textContent = message;
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = 'Try again';
+    b.addEventListener('click', () => { note.remove(); ask(); });
+    note.append(p, b);
+    box.appendChild(note);
+    scrollMessagesToBottom();
+  }
+
+  function send(text) {
+    text = text.trim();
+    if (!text || busy) return;
+    const chat = state.chats.get('bot-pip');
+    if (!chat) return;
+    history.push({ role: 'user', content: text });
+    addLocalMessage('bot-pip', { kind:'text', text, ts:Date.now(), mine:true, senderName:'You' });
+    ask();
+  }
+
+  function stop() {
+    userStopped = true;
+    if (controller) controller.abort();
+  }
+
+  function newConversation() {
+    if (controller) { userStopped = true; controller.abort(); }
+    history = [];
+    const chat = state.chats.get('bot-pip');
+    if (chat) {
+      chat.messages = [{ id: uid(), kind:'text', text: "Hello, I am Pip. Ask me anything, share a story, or just say hi. I will write back as we go.", ts: Date.now(), mine:false, senderName:'Pip' }];
+    }
+    setMood('idle', 'Cozy chat friend · always here');
+    renderMessages();
+    renderChatList();
+  }
+
+  function isBusy() { return busy; }
+
+  return { send, stop, newConversation, isBusy };
+})();
+
+function ensurePipChat(){
+  if (state.chats.has('bot-pip')) return state.chats.get('bot-pip');
+  const chat = { id:'bot-pip', type:'bot', name:'Pip', avatarUrl:'', avatarCustom:false, nameCustom:false, messages: [
+    { id: uid(), kind:'text', text: "Hello, I am Pip. Ask me anything, share a story, or just say hi. I will write back as we go.", ts: Date.now(), mine:false, senderName:'Pip' }
+  ], lastActivity: Date.now() };
+  state.chats.set('bot-pip', chat);
+  return chat;
+}
+
+function readFileAsDataURL(file){
+  return new Promise((resolve,reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(r.result);
+    r.onerror = reject;
+    r.readAsDataURL(file);
+  });
+}
+
+async function sendFileMessage(chatId, file){
+  if (file.size > FILE_MAX_BYTES){ toast('That file is too large for a direct connection (30 MB max)'); return; }
+  const chat = state.chats.get(chatId);
+  const dataUrl = await readFileAsDataURL(file);
+  const kind = file.type.startsWith('image/') ? 'image' : 'file';
+  const fileId = uid();
+  await streamFileToChat(chat, fileId, kind, file.name, file.type, file.size, dataUrl);
+  addLocalMessage(chatId, { kind, name:file.name, size:file.size, dataUrl, ts:Date.now(), mine:true });
+}
+
+async function sendVoiceMessage(chatId, blob){
+  const chat = state.chats.get(chatId);
+  const dataUrl = await new Promise((res,rej)=>{ const r=new FileReader(); r.onload=()=>res(r.result); r.onerror=rej; r.readAsDataURL(blob); });
+  const fileId = uid();
+  await streamFileToChat(chat, fileId, 'audio', 'voice-message.webm', 'audio/webm', blob.size, dataUrl);
+  addLocalMessage(chatId, { kind:'audio', dataUrl, ts:Date.now(), mine:true });
+}
+
+async function streamFileToChat(chat, fileId, kind, name, mime, size, dataUrl){
+  const base64 = dataUrl.split(',')[1] || '';
+  const start = envelopeForChat(chat, { type:'file-start', fileId, kind, name, mime, size });
+  routeOutgoing(chat, start);
+  for (let i=0; i<base64.length; i+=FILE_CHUNK_SIZE){
+    const chunk = base64.slice(i, i+FILE_CHUNK_SIZE);
+    const env = envelopeForChat(chat, { type:'file-chunk', fileId, data:chunk });
+    routeOutgoing(chat, env);
+    await drainIfNeeded(chat);
+  }
+  const end = envelopeForChat(chat, { type:'file-end', fileId });
+  routeOutgoing(chat, end);
+}
+function drainIfNeeded(chat){
+  const dcs = chat.type==='direct' ? [state.peers.get(chat.peerId)?.dc] :
+    (chat.isHost ? Array.from(chat.memberIds).map(pid=>state.peers.get(pid)?.dc) : [state.peers.get(chat.hostPeerId)?.dc]);
+  const busy = dcs.some(dc => dc && dc.bufferedAmount > 262144);
+  if (!busy) return Promise.resolve();
+  return new Promise(resolve => setTimeout(resolve, 25));
+}
+
+/* ============================================================
+   WEBRTC CORE
+   ============================================================ */
+function makePeerConnection(peerId){
+  const pc = new RTCPeerConnection({ iceServers: STUN_SERVERS });
+  pc.onconnectionstatechange = () => {
+    const rec = state.peers.get(peerId);
+    if (!rec) return;
+    if (pc.connectionState==='connected') updatePeerStatus(peerId, 'connected');
+    else if (pc.connectionState==='disconnected') updatePeerStatus(peerId, 'reconnecting');
+    else if (['failed','closed'].includes(pc.connectionState)) updatePeerStatus(peerId, 'disconnected');
+  };
+  pc.ontrack = (ev) => handleRemoteTrack(peerId, ev);
+  pc.onnegotiationneeded = async () => {
+    const rec = state.peers.get(peerId);
+    if (!rec || !rec.dc || rec.dc.readyState!=='open' || rec.negotiating) return;
+    try{
+      rec.negotiating = true;
+      const offer = await pc.createOffer();
+      await pc.setLocalDescription(offer);
+      rec.dc.send(JSON.stringify({ type:'rtc-nego-offer', sdp: pc.localDescription }));
+    } finally { rec.negotiating = false; }
+  };
+  return pc;
+}
+
+function updatePeerStatus(peerId, status){
+  const rec = state.peers.get(peerId);
+  if (!rec) return;
+  rec.status = status;
+  renderChatList();
+  if (state.activeChatId){
+    const chat = state.chats.get(state.activeChatId);
+    if (chat && (chat.peerId===peerId || (chat.type==='group' && chat.memberIds.has(peerId)))){
+      const sub = $('#chatSub');
+      if (sub && chat.type==='direct') sub.textContent = peerStatusLabel(peerId);
+    }
+  }
+}
+
+function registerPeer(peerId, pc, name){
+  const rec = { id: peerId, name: name||'New contact', pc, dc: null, status:'connecting', chatId:null, pendingGroup:null, negotiating:false };
+  state.peers.set(peerId, rec);
+  return rec;
+}
+
+function attachDataChannel(peerId, dc){
+  const rec = state.peers.get(peerId);
+  rec.dc = dc;
+  dc.onopen = () => {
+    updatePeerStatus(peerId, 'connected');
+    const hello = { type:'hello', senderId: state.profile.id, senderName: state.profile.name||'Someone', avatarUrl: state.profile.avatarUrl||'' };
+    if (rec.pendingGroup){
+      const gChat = state.chats.get(rec.pendingGroup.id);
+      hello.groupId = rec.pendingGroup.id;
+      hello.groupName = gChat ? gChat.name : rec.pendingGroup.name;
+      hello.groupAvatar = gChat ? (gChat.avatarUrl||'') : '';
+    }
+    dc.send(JSON.stringify(hello));
+  };
+  dc.onclose = () => updatePeerStatus(peerId, 'disconnected');
+  dc.onmessage = (ev) => handleIncoming(peerId, ev.data);
+}
+
+function sendToPeer(peerId, obj){
+  const rec = state.peers.get(peerId);
+  if (rec && rec.dc && rec.dc.readyState==='open'){
+    try{ rec.dc.send(JSON.stringify(obj)); }catch(e){}
+  }
+}
+
+async function waitForIceGatherComplete(pc){
+  if (pc.iceGatheringState === 'complete') return;
+  await new Promise(resolve => {
+    const check = () => { if (pc.iceGatheringState==='complete'){ pc.removeEventListener('icegatheringstatechange', check); resolve(); } };
+    pc.addEventListener('icegatheringstatechange', check);
+    setTimeout(resolve, 4000);
+  });
+}
+
+async function createInvite({ groupId, groupName } = {}){
+  const peerId = uid();
+  const pc = makePeerConnection(peerId);
+  const rec = registerPeer(peerId, pc, 'Invited contact');
+  if (groupId) rec.pendingGroup = { id: groupId, name: groupName };
+  const dc = pc.createDataChannel('chat');
+  attachDataChannel(peerId, dc);
+  const offer = await pc.createOffer();
+  await pc.setLocalDescription(offer);
+  await waitForIceGatherComplete(pc);
+  const code = await packCode({ t:'offer', sdp: pc.localDescription.sdp, from: state.profile.name||'Someone' });
+  return { peerId, code };
+}
+
+async function acceptInvite(offerCode){
+  const payload = await unpackCode(offerCode);
+  if (payload.t !== 'offer') throw new Error('That looks like an answer code, not an invite code.');
+  const peerId = uid();
+  const pc = makePeerConnection(peerId);
+  const rec = registerPeer(peerId, pc, payload.from || 'New contact');
+  pc.ondatachannel = (ev) => attachDataChannel(peerId, ev.channel);
+  await pc.setRemoteDescription({ type:'offer', sdp: payload.sdp });
+  const answer = await pc.createAnswer();
+  await pc.setLocalDescription(answer);
+  await waitForIceGatherComplete(pc);
+  const code = await packCode({ t:'answer', sdp: pc.localDescription.sdp, from: state.profile.name||'Someone' });
+  return { peerId, code };
+}
+
+async function completeInvite(peerId, answerCode){
+  const payload = await unpackCode(answerCode);
+  if (payload.t !== 'answer') throw new Error('That looks like an invite code, not an answer code.');
+  const rec = state.peers.get(peerId);
+  if (!rec) throw new Error('Unknown connection.');
+  await rec.pc.setRemoteDescription({ type:'answer', sdp: payload.sdp });
+}
+
+/* ============================================================
+   INCOMING PROTOCOL MESSAGES
+   ============================================================ */
+function ensureDirectChatForPeer(peerId, name){
+  let chat = Array.from(state.chats.values()).find(c => c.type==='direct' && c.peerId===peerId);
+  if (!chat){
+    chat = { id: 'd-'+peerId, type:'direct', name: name||'New contact', nameCustom:false, avatarUrl:'', avatarCustom:false, peerId, messages:[], lastActivity:Date.now() };
+    state.chats.set(chat.id, chat);
+  }
+  return chat;
+}
+function ensureGroupChat(groupId, groupName, hostPeerId, groupAvatar){
+  let chat = state.chats.get(groupId);
+  if (!chat){
+    chat = { id: groupId, type:'group', name: groupName||'New group', nameCustom:false, avatarUrl: groupAvatar||'', avatarCustom:false, isHost:false, hostPeerId, memberIds:new Set(), messages:[], lastActivity:Date.now() };
+    state.chats.set(groupId, chat);
+  }
+  return chat;
+}
+
+function handleIncoming(peerId, raw){
+  let msg; try{ msg = JSON.parse(raw); }catch(e){ return; }
+  const rec = state.peers.get(peerId);
+
+  switch(msg.type){
+    case 'hello': {
+      if (rec) rec.name = msg.senderName || rec.name;
+      if (rec) rec.avatarUrl = msg.avatarUrl || '';
+      if (msg.groupId){
+        const chat = ensureGroupChat(msg.groupId, msg.groupName, peerId, msg.groupAvatar);
+        chat.memberIds.add(peerId);
+        chat.messages.push({ kind:'system', text:`${msg.senderName||'Someone'} connected`, ts:Date.now() });
+        rec.chatId = chat.id;
+      } else {
+        const chat = ensureDirectChatForPeer(peerId, msg.senderName);
+        if (msg.senderName && !chat.nameCustom) chat.name = msg.senderName;
+        if (msg.avatarUrl && !chat.avatarCustom) chat.avatarUrl = msg.avatarUrl;
+        rec.chatId = chat.id;
+      }
+      renderChatList();
+      if (state.activeChatId===rec.chatId) renderChatMain();
+      break;
+    }
+    case 'chat': {
+      routeIncomingChat(peerId, msg);
+      break;
+    }
+    case 'profile-update': {
+      if (rec){
+        if (msg.name) rec.name = msg.name;
+        rec.avatarUrl = msg.avatarUrl || '';
+        const chat = rec.chatId ? state.chats.get(rec.chatId) : null;
+        if (chat && chat.type==='direct'){
+          if (msg.name && !chat.nameCustom) chat.name = msg.name;
+          if (!chat.avatarCustom) chat.avatarUrl = msg.avatarUrl || '';
+          renderChatList();
+          if (state.activeChatId===chat.id) renderChatMain();
+        }
+      }
+      break;
+    }
+    case 'group-avatar': {
+      const chat = state.chats.get(msg.groupId);
+      if (chat && !chat.avatarCustom){
+        chat.avatarUrl = msg.avatarUrl || '';
+        renderChatList();
+        if (state.activeChatId===chat.id) renderChatMain();
+      }
+      break;
+    }
+    case 'group-rename': {
+      const chat = state.chats.get(msg.groupId);
+      if (chat && !chat.nameCustom && msg.name){
+        chat.name = msg.name;
+        renderChatList();
+        if (state.activeChatId===chat.id) renderChatMain();
+      }
+      break;
+    }
+    case 'file-start': {
+      state.incomingFiles.set(msg.fileId, { name:msg.name, mime:msg.mime, size:msg.size, kind:msg.kind, chunks:[], meta: msg });
+      break;
+    }
+    case 'file-chunk': {
+      const f = state.incomingFiles.get(msg.fileId);
+      if (f) f.chunks.push(msg.data);
+      break;
+    }
+    case 'file-end': {
+      const f = state.incomingFiles.get(msg.fileId);
+      if (!f) break;
+      const dataUrl = `data:${f.mime};base64,${f.chunks.join('')}`;
+      state.incomingFiles.delete(msg.fileId);
+      routeIncomingChat(peerId, Object.assign({}, f.meta, { kind:f.kind, dataUrl, size:f.size, name:f.name }));
+      break;
+    }
+    case 'typing': {
+      const chatId = resolveChatIdForIncoming(peerId, msg);
+      if (chatId===state.activeChatId){
+        const note = $('#typingNote');
+        if (note){
+          note.textContent = `${msg.senderName||'Someone'} is typing…`;
+          clearTimeout(note._t);
+          note._t = setTimeout(()=>{ note.textContent=''; }, 1600);
+        }
+      }
+      break;
+    }
+    case 'rtc-nego-offer': handleNegoOffer(peerId, msg); break;
+    case 'rtc-nego-answer': handleNegoAnswer(peerId, msg); break;
+    case 'call-request': handleCallRequest(peerId, msg); break;
+    case 'call-accept': handleCallAccept(peerId); break;
+    case 'call-decline': handleCallDecline(peerId); break;
+    case 'call-end': handleRemoteCallEnd(peerId); break;
+  }
+}
+
+function resolveChatIdForIncoming(peerId, msg){
+  if (msg.chatKind==='group' && msg.groupId) return msg.groupId;
+  const rec = state.peers.get(peerId);
+  return rec ? (rec.chatId || ('d-'+peerId)) : null;
+}
+
+function routeIncomingChat(peerId, msg){
+  const rec = state.peers.get(peerId);
+  if (msg.chatKind==='group' && msg.groupId){
+    const chat = state.chats.get(msg.groupId);
+    if (!chat) return;
+    if (chat.isHost){
+      chat.memberIds.forEach(pid => { if (pid!==peerId) sendToPeer(pid, msg); });
+    }
+    pushIncomingMessage(chat.id, msg);
+  } else {
+    const chat = ensureDirectChatForPeer(peerId, rec ? rec.name : msg.senderName);
+    pushIncomingMessage(chat.id, msg);
+  }
+}
+
+function pushIncomingMessage(chatId, msg){
+  const chat = state.chats.get(chatId);
+  if (!chat) return;
+  const base = { ts: msg.ts||Date.now(), mine:false, senderName: msg.senderName };
+  let entry = null;
+  if (msg.kind==='text') entry = Object.assign(base, { kind:'text', text: msg.text });
+  else if (msg.kind==='image') entry = Object.assign(base, { kind:'image', dataUrl: msg.dataUrl, name: msg.name });
+  else if (msg.kind==='audio') entry = Object.assign(base, { kind:'audio', dataUrl: msg.dataUrl });
+  else if (msg.kind==='file') entry = Object.assign(base, { kind:'file', dataUrl: msg.dataUrl, name: msg.name, size: msg.size });
+  if (!entry) return;
+  chat.messages.push(entry);
+  chat.lastActivity = Date.now();
+  if (chatId===state.activeChatId) renderMessages();
+  renderChatList();
+  if (chatId!==state.activeChatId) toast(`${msg.senderName||'Someone'}: ${msg.kind==='text'?msg.text:'sent a '+msg.kind}`);
+}
+
+/* ============================================================
+   CALLS (voice / video)
+   ============================================================ */
+async function handleNegoOffer(peerId, msg){
+  const rec = state.peers.get(peerId);
+  if (!rec) return;
+  await rec.pc.setRemoteDescription(msg.sdp);
+  const answer = await rec.pc.createAnswer();
+  await rec.pc.setLocalDescription(answer);
+  sendToPeer(peerId, { type:'rtc-nego-answer', sdp: rec.pc.localDescription });
+}
+async function handleNegoAnswer(peerId, msg){
+  const rec = state.peers.get(peerId);
+  if (!rec) return;
+  await rec.pc.setRemoteDescription(msg.sdp);
+}
+
+function handleRemoteTrack(peerId, ev){
+  const stream = ev.streams[0];
+  const audioSink = $('#remoteAudioSink');
+  if (ev.track.kind==='audio' && audioSink){ audioSink.srcObject = stream; }
+  if (ev.track.kind==='video'){
+    let vid = document.getElementById('remoteVideoEl');
+    if (!vid){
+      vid = document.createElement('video');
+      vid.id = 'remoteVideoEl'; vid.autoplay = true; vid.playsInline = true;
+      vid.style.cssText = 'position:absolute;top:70px;right:22px;width:220px;border-radius:16px;box-shadow:var(--shadow-pop);z-index:6;background:#000;';
+      $('#chatMain').appendChild(vid);
+    }
+    vid.srcObject = stream;
+  }
+}
+
+function requestCall(peerId, kind){
+  const rec = state.peers.get(peerId);
+  if (!rec || rec.status!=='connected'){ toast('Waiting for the connection to finish first'); return; }
+  if (state.call){ toast('You are already in a call'); return; }
+  sendToPeer(peerId, { type:'call-request', kind, senderName: state.profile.name||'Someone' });
+  toast('Calling… waiting for them to accept');
+  state.call = { peerId, kind, pending:true, chatId: rec.chatId };
+}
+
+function handleCallRequest(peerId, msg){
+  const rec = state.peers.get(peerId);
+  const banner = document.createElement('div');
+  banner.className = 'incoming-call';
+  banner.innerHTML = `
+    <div class="avatar" style="background:${colorFor(peerId)};width:40px;height:40px;">${esc(initials(rec?rec.name:'?'))}</div>
+    <div><div class="name">${esc(rec?rec.name:'Someone')}</div><div class="sub">Incoming ${msg.kind==='video'?'video':'voice'} call</div></div>
+    <button class="icon-btn danger" id="declineCall" title="Decline">${svgHangup()}</button>
+    <button class="icon-btn" id="acceptCall" title="Accept" style="background:#DCFCE7;color:#16A34A;">${svgPhone()}</button>
+  `;
+  document.body.appendChild(banner);
+  banner.querySelector('#declineCall').onclick = () => { sendToPeer(peerId,{type:'call-decline'}); banner.remove(); };
+  banner.querySelector('#acceptCall').onclick = async () => {
+    banner.remove();
+    sendToPeer(peerId, { type:'call-accept' });
+    await beginLocalCallMedia(peerId, msg.kind);
+  };
+}
+
+function handleCallDecline(peerId){
+  toast('Call declined');
+  state.call = null;
+}
+async function handleCallAccept(peerId){
+  toast('Call accepted');
+  await beginLocalCallMedia(peerId, state.call ? state.call.kind : 'audio');
+}
+
+async function beginLocalCallMedia(peerId, kind){
+  const rec = state.peers.get(peerId);
+  if (!rec) return;
+  try{
+    const constraints = kind==='video' ? { audio:true, video:true } : { audio:true };
+    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+    stream.getTracks().forEach(track => rec.pc.addTrack(track, stream));
+    state.call = { peerId, kind, localStream: stream, chatId: rec.chatId, startedAt: Date.now(), muted:false };
+    if (kind==='video'){
+      let vid = document.getElementById('localVideoEl');
+      if (!vid){
+        vid = document.createElement('video'); vid.id='localVideoEl'; vid.autoplay=true; vid.muted=true; vid.playsInline=true;
+        vid.style.cssText='position:absolute;top:70px;right:250px;width:140px;border-radius:14px;box-shadow:var(--shadow-pop);z-index:6;background:#000;';
+        $('#chatMain').appendChild(vid);
+      }
+      vid.srcObject = stream;
+    }
+    renderChatMain();
+    startCallTimer();
+  }catch(err){
+    toast('Could not access camera/microphone');
+    state.call = null;
+  }
+}
+
+function startCallTimer(){
+  clearInterval(window.__callTimer);
+  window.__callTimer = setInterval(() => {
+    const bar = $('#callTimer');
+    if (!state.call){ clearInterval(window.__callTimer); return; }
+    if (bar) bar.textContent = fmtDuration(Date.now()-state.call.startedAt);
+  }, 1000);
+}
+function fmtDuration(ms){
+  const s = Math.floor(ms/1000); const m = Math.floor(s/60); const ss = String(s%60).padStart(2,'0');
+  return `${m}:${ss}`;
+}
+
+function renderCallBar(){
+  if (!state.call || !state.call.startedAt) return;
+  const rec = state.peers.get(state.call.peerId);
+  const existing = document.getElementById('callBar');
+  if (existing) existing.remove();
+  const bar = document.createElement('div');
+  bar.className = 'call-bar'; bar.id = 'callBar';
+  bar.innerHTML = `
+    <div><div class="who">${esc(rec?rec.name:'Call')} · ${state.call.kind==='video'?'Video call':'Voice call'}</div><div class="timer" id="callTimer">0:00</div></div>
+    <div class="call-bar-actions">
+      <button class="icon-btn" id="btnMute" title="Mute">${svgMicSmall()}</button>
+      <button class="icon-btn hangup" id="btnHangup" title="Hang up">${svgHangup()}</button>
+    </div>`;
+  $('#chatMain').prepend(bar);
+  $('#btnMute').onclick = toggleMute;
+  $('#btnHangup').onclick = endCall;
+}
+function toggleMute(){
+  if (!state.call || !state.call.localStream) return;
+  state.call.muted = !state.call.muted;
+  state.call.localStream.getAudioTracks().forEach(t => t.enabled = !state.call.muted);
+  toast(state.call.muted ? 'Muted' : 'Unmuted');
+}
+function endCall(){
+  if (!state.call) return;
+  const peerId = state.call.peerId;
+  if (state.call.localStream) state.call.localStream.getTracks().forEach(t=>t.stop());
+  sendToPeer(peerId, { type:'call-end' });
+  cleanupCallUI();
+}
+function handleRemoteCallEnd(peerId){
+  if (state.call && state.call.peerId===peerId){
+    if (state.call.localStream) state.call.localStream.getTracks().forEach(t=>t.stop());
+    toast('Call ended');
+    cleanupCallUI();
+  }
+}
+function cleanupCallUI(){
+  state.call = null;
+  clearInterval(window.__callTimer);
+  const bar = document.getElementById('callBar'); if (bar) bar.remove();
+  const lv = document.getElementById('localVideoEl'); if (lv) lv.remove();
+  const rv = document.getElementById('remoteVideoEl'); if (rv) rv.remove();
+}
+
+/* ============================================================
+   MODALS: New chat / New group / Invite member
+   ============================================================ */
+function closeModal(){ $('#modalRoot').innerHTML = ''; }
+
+function openNewChatModal(){
+  $('#modalRoot').innerHTML = `
+  <div class="overlay" id="ov">
+    <div class="modal">
+      <button class="icon-btn close-x" id="mClose">${svgClose()}</button>
+      <h3>Start a new chat</h3>
+      <p class="desc">Send an invite to one person, or drop in a code someone sent you.</p>
+      <div class="tabs">
+        <button class="tab active" data-tab="create">Invite someone</button>
+        <button class="tab" data-tab="join">I have a code</button>
+      </div>
+      <div id="tabBody"></div>
+    </div>
+  </div>`;
+  bindModalClose();
+  const body = $('#tabBody');   const tabs = $$('.tab');
+  tabs.forEach(t => t.onclick = () => { tabs.forEach(x=>x.classList.remove('active')); t.classList.add('active'); showTab(t.dataset.tab); });
+  let createdPeerId = null;
+
+  function showTab(which){
+    if (which==='create'){
+      body.innerHTML = `
+        <div class="field-label">1. Send them an invite</div>
+        <div style="display:flex;gap:8px;">
+          <button class="btn primary" id="copyInvite" style="flex:1;justify-content:center;" disabled>Preparing your invite…</button>
+          <button class="icon-btn" id="shareInvite" style="display:none;width:44px;height:44px;border-radius:14px;" title="Share">${svgShare()}</button>
+        </div>
+        <button class="link-btn" id="toggleInviteCode">Show the code</button>
+        <textarea class="code-area code-reveal" id="inviteCode" style="display:none;" readonly></textarea>
+        <div class="step-note">It's copied to your clipboard automatically — just paste it into a text, email, or any chat app.</div>
+        <div class="field-label" style="margin-top:18px;">2. Paste what they send back</div>
+        <textarea class="code-area" id="answerPaste" placeholder="Paste what they sent back…"></textarea>
+        <div class="modal-actions"><button class="btn primary" id="finishConnect" style="width:100%;">Connect</button></div>
+      `;
+      (async () => {
+        if (!state.profile.name) { toast('Add your name in the sidebar first'); }
+        const { peerId, code } = await createInvite();
+        createdPeerId = peerId;
+        $('#inviteCode').value = code;
+        const btn = $('#copyInvite'); btn.disabled = false; btn.textContent = '📋 Copy invite';
+        copyText(code);
+        toast('Invite ready — copied to your clipboard');
+        if (navigator.share){
+          const shareBtn = $('#shareInvite');
+          shareBtn.style.display = 'flex';
+          shareBtn.onclick = () => navigator.share({ text: code }).catch(()=>{});
+        }
+      })();
+      $('#copyInvite').onclick = () => { copyText($('#inviteCode').value); toast('Copied — go ahead and send it'); };
+      $('#toggleInviteCode').onclick = () => {
+        const ta = $('#inviteCode'); const show = ta.style.display==='none';
+        ta.style.display = show?'block':'none'; $('#toggleInviteCode').textContent = show?'Hide the code':'Show the code';
+      };
+      $('#finishConnect').onclick = async () => {
+        const answer = $('#answerPaste').value.trim();
+        if (!answer){ toast('Paste their reply first'); return; }
+        try{
+          await completeInvite(createdPeerId, answer);
+          toast('Connecting…');
+          const chat = ensureDirectChatForPeer(createdPeerId, 'New contact');
+          setActiveChat(chat.id);
+          closeModal();
+        }catch(e){ toast("That code doesn't look right — check you copied all of it"); }
+      };
+    } else {
+      body.innerHTML = `
+        <div class="field-label">1. Paste the invite they sent you</div>
+        <textarea class="code-area" id="offerPaste" placeholder="Paste it here…"></textarea>
+        <div class="modal-actions"><button class="btn primary" id="genAnswer" style="width:100%;">Continue</button></div>
+        <div id="answerOut" style="display:none;margin-top:16px;">
+          <div class="field-label">2. Send this back to them</div>
+          <div style="display:flex;gap:8px;">
+            <button class="btn primary" id="copyAnswer" style="flex:1;justify-content:center;">📋 Copy my reply</button>
+            <button class="icon-btn" id="shareAnswer" style="display:none;width:44px;height:44px;border-radius:14px;" title="Share">${svgShare()}</button>
+          </div>
+          <button class="link-btn" id="toggleAnswerCode">Show the code</button>
+          <textarea class="code-area code-reveal" id="answerCode" style="display:none;" readonly></textarea>
+          <div class="step-note">It's copied to your clipboard automatically — send it back the same way they messaged you.</div>
+        </div>
+      `;
+      $('#genAnswer').onclick = async () => {
+        const offer = $('#offerPaste').value.trim();
+        if (!offer){ toast('Paste an invite code first'); return; }
+        if (!state.profile.name) toast('Tip: add your name in the sidebar so they see who you are');
+        try{
+          const { peerId, code } = await acceptInvite(offer);
+          $('#answerOut').style.display = 'block';
+          $('#answerCode').value = code;
+          copyText(code);
+          toast('Reply ready — copied to your clipboard');
+          $('#copyAnswer').onclick = () => { copyText(code); toast('Copied — send it back to them'); };
+          if (navigator.share){
+            const shareBtn = $('#shareAnswer');
+            shareBtn.style.display = 'flex';
+            shareBtn.onclick = () => navigator.share({ text: code }).catch(()=>{});
+          }
+          $('#toggleAnswerCode').onclick = () => {
+            const ta = $('#answerCode'); const show = ta.style.display==='none';
+            ta.style.display = show?'block':'none'; $('#toggleAnswerCode').textContent = show?'Hide the code':'Show the code';
+          };
+          const chat = ensureDirectChatForPeer(peerId, 'New contact');
+          setActiveChat(chat.id);
+        }catch(e){ toast("That code doesn't look right — check you copied all of it"); }
+      };
+    }
+  }
+  showTab('create');
+}
+
+function openNewGroupModal(){
+  $('#modalRoot').innerHTML = `
+  <div class="overlay" id="ov">
+    <div class="modal">
+      <button class="icon-btn close-x" id="mClose">${svgClose()}</button>
+      <h3>Create a group</h3>
+      <p class="desc">You'll be the group's host — new people join by connecting to you, and you relay messages between everyone. Keep this browser tab open for the group to stay active.</p>
+      <div class="field-label">Group name</div>
+      <input class="text-input" id="groupNameInput" placeholder="e.g. Weekend Trip" maxlength="30">
+      <div class="modal-actions"><button class="btn primary" id="createGroupBtn" style="width:100%;">Create group</button></div>
+    </div>
+  </div>`;
+  bindModalClose();
+  $('#createGroupBtn').onclick = () => {
+    const name = $('#groupNameInput').value.trim() || 'New group';
+    const groupId = 'g-'+uid();
+    const chat = { id: groupId, type:'group', name, nameCustom:false, avatarUrl:'', avatarCustom:false, isHost:true, memberIds:new Set(), messages:[], lastActivity:Date.now() };
+    state.chats.set(groupId, chat);
+    setActiveChat(groupId);
+    closeModal();
+    openInviteToGroupModal(groupId);
+  };
+}
+
+function openInviteToGroupModal(groupId){
+  const chat = state.chats.get(groupId);
+  $('#modalRoot').innerHTML = `
+  <div class="overlay" id="ov">
+    <div class="modal">
+      <button class="icon-btn close-x" id="mClose">${svgClose()}</button>
+      <h3>Invite someone to “${esc(chat.name)}”</h3>
+      <p class="desc">Each new person needs their own invite — send this one to a single friend.</p>
+      <div class="field-label">1. Send them an invite</div>
+      <div style="display:flex;gap:8px;">
+        <button class="btn primary" id="gCopyInvite" style="flex:1;justify-content:center;" disabled>Preparing your invite…</button>
+        <button class="icon-btn" id="gShareInvite" style="display:none;width:44px;height:44px;border-radius:14px;" title="Share">${svgShare()}</button>
+      </div>
+      <button class="link-btn" id="gToggleCode">Show the code</button>
+      <textarea class="code-area code-reveal" id="gInviteCode" style="display:none;" readonly></textarea>
+      <div class="step-note">It's copied to your clipboard automatically — just paste it into a text, email, or any chat app.</div>
+      <div class="field-label" style="margin-top:18px;">2. Paste what they send back</div>
+      <textarea class="code-area" id="gAnswerPaste" placeholder="Paste what they sent back…"></textarea>
+      <div class="modal-actions"><button class="btn primary" id="gFinish" style="width:100%;">Add to group</button></div>
+    </div>
+  </div>`;
+  bindModalClose();
+  let peerId = null;
+  (async () => {
+    const res = await createInvite({ groupId: chat.id, groupName: chat.name });
+    peerId = res.peerId;
+    $('#gInviteCode').value = res.code;
+    const btn = $('#gCopyInvite'); btn.disabled = false; btn.textContent = '📋 Copy invite';
+    copyText(res.code);
+    toast('Invite ready — copied to your clipboard');
+    if (navigator.share){
+      const shareBtn = $('#gShareInvite');
+      shareBtn.style.display = 'flex';
+      shareBtn.onclick = () => navigator.share({ text: res.code }).catch(()=>{});
+    }
+  })();
+  $('#gCopyInvite').onclick = () => { copyText($('#gInviteCode').value); toast('Copied — go ahead and send it'); };
+  $('#gToggleCode').onclick = () => {
+    const ta = $('#gInviteCode'); const show = ta.style.display==='none';
+    ta.style.display = show?'block':'none'; $('#gToggleCode').textContent = show?'Hide the code':'Show the code';
+  };
+  $('#gFinish').onclick = async () => {
+    const answer = $('#gAnswerPaste').value.trim();
+    if (!answer){ toast('Paste their reply first'); return; }
+    try{
+      await completeInvite(peerId, answer);
+      chat.memberIds.add(peerId);
+      toast('Connecting them now…');
+      renderChatMain();
+      closeModal();
+    }catch(e){ toast("That code doesn't look right — check you copied all of it"); }
+  };
+}
+
+function svgClose(){ return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`; }
+function svgPencil(){ return `<svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M16.5 3.5l4 4L8 20H4v-4L16.5 3.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>`; }
+function svgShare(){ return `<svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 15V4M12 4L8 8M12 4l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 13v5a2 2 0 002 2h10a2 2 0 002-2v-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`; }
+function bindModalClose(){
+  $('#mClose').onclick = closeModal;
+  $('#ov').addEventListener('click', (e) => { if (e.target.id==='ov') closeModal(); });
+}
+
+/* ============================================================
+   AVATAR PICKER
+   ============================================================ */
+function resizeImageFile(file, maxSize=240){
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const reader = new FileReader();
+    reader.onload = () => { img.onload = () => {
+      const scale = Math.min(1, maxSize / Math.max(img.width, img.height));
+      const outW = Math.max(1, Math.round(img.width * scale));
+      const outH = Math.max(1, Math.round(img.height * scale));
+      const canvas = document.createElement('canvas');
+      canvas.width = outW; canvas.height = outH;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, outW, outH);
+      resolve(canvas.toDataURL('image/jpeg', 0.88));
+    }; img.onerror = () => reject(new Error('That file could not be read as an image')); img.src = reader.result; };
+    reader.onerror = () => reject(new Error('Could not read that file'));
+    reader.readAsDataURL(file);
+  });
+}
+function testImageUrl(url){
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(url);
+    img.onerror = () => reject(new Error("Couldn't load an image from that link"));
+    img.src = url;
+  });
+}
+
+function openAvatarModal({ title, subtitle, currentUrl, onSave, onRemove }){
+  let pending = currentUrl || '';
+  $('#modalRoot').innerHTML = `
+  <div class="overlay" id="ov">
+    <div class="modal">
+      <button class="icon-btn close-x" id="mClose">${svgClose()}</button>
+      <h3>${esc(title)}</h3>
+      <p class="desc">${esc(subtitle||'')}</p>
+      <div class="avatar-picker-preview" id="avPreview">${currentUrl ? `<img src="${esc(currentUrl)}">` : '🙂'}</div>
+      <div class="tabs">
+        <button class="tab active" data-tab="url">Paste a link</button>
+        <button class="tab" data-tab="upload">Upload a photo</button>
+      </div>
+      <div id="avBody"></div>
+      <div class="modal-actions">
+        ${currentUrl ? `<button class="btn ghost" id="avRemove">Remove photo</button>` : ''}
+        <button class="btn primary" id="avSave">Save</button>
+      </div>
+    </div>
+  </div>`;
+  bindModalClose();
+  const body = $('#avBody');   const tabs = $$('.tab');
+  tabs.forEach(t => t.onclick = () => { tabs.forEach(x=>x.classList.remove('active')); t.classList.add('active'); showTab(t.dataset.tab); });
+
+  function setPreview(url){ $('#avPreview').innerHTML = url ? `<img src="${esc(url)}">` : '🙂'; }
+
+  function showTab(which){
+    if (which==='url'){
+      body.innerHTML = `
+        <input class="text-input" id="avUrlInput" placeholder="https://example.com/photo.jpg" value="${esc(currentUrl&&currentUrl.startsWith('http')?currentUrl:'')}">
+        <div class="step-note">Paste a link to any image on the web — a profile picture, a favorite photo, anything.</div>
+      `;
+      $('#avUrlInput').addEventListener('input', async (e) => {
+        const url = e.target.value.trim();
+        if (!url) return;
+        try{ await testImageUrl(url); pending = url; setPreview(url); }
+        catch(err){}
+      });
+    } else {
+      body.innerHTML = `
+        <label class="upload-drop" id="avDrop">Tap to choose a photo from your device</label>
+        <input type="file" id="avFileInput" accept="image/*" hidden>
+      `;
+      $('#avDrop').addEventListener('click', () => $('#avFileInput').click());
+      $('#avFileInput').addEventListener('change', async () => {
+        const f = $('#avFileInput').files[0];
+        if (!f) return;
+        try{ pending = await resizeImageFile(f); setPreview(pending); toast('Photo ready — tap Save'); }
+        catch(err){ toast(err.message); }
+      });
+    }
+  }
+  showTab('url');
+
+  $('#avSave').onclick = () => {
+    if (!pending){ toast('Add a link or upload a photo first'); return; }
+    onSave(pending);
+    closeModal();
+  };
+  if ($('#avRemove')) $('#avRemove').onclick = () => { onRemove && onRemove(); closeModal(); };
+}
+
+function openProfileAvatarModal(){
+  openAvatarModal({
+    title: 'Your photo',
+    subtitle: "This is what others see when you're chatting with them.",
+    currentUrl: state.profile.avatarUrl,
+    onSave: (url) => {
+      state.profile.avatarUrl = url;
+      renderRailAvatar();
+      broadcastProfileUpdate();
+    },
+    onRemove: () => {
+      state.profile.avatarUrl = '';
+      renderRailAvatar();
+      broadcastProfileUpdate();
+    }
+  });
+}
+
+function openChatAvatarModal(chatId){
+  const chat = state.chats.get(chatId);
+  if (!chat) return;
+  const isGroup = chat.type==='group';
+  openAvatarModal({
+    title: isGroup ? 'Group photo' : 'Contact photo',
+    subtitle: isGroup ? "Give this group a picture — everyone who joins later will see it." : "This is just for how you see them — it stays on your device.",
+    currentUrl: chat.avatarUrl,
+    onSave: (url) => {
+      chat.avatarUrl = url;
+      chat.avatarCustom = true;
+      renderChatList();
+      if (state.activeChatId===chatId) renderChatMain();
+      if (isGroup && chat.isHost) broadcastGroupAvatar(chat);
+    },
+    onRemove: () => {
+      chat.avatarUrl = '';
+      chat.avatarCustom = false;
+      renderChatList();
+      if (state.activeChatId===chatId) renderChatMain();
+      if (isGroup && chat.isHost) broadcastGroupAvatar(chat);
+    }
+  });
+}
+
+function broadcastProfileUpdate(){
+  state.peers.forEach(p => sendToPeer(p.id, { type:'profile-update', name: state.profile.name||'Someone', avatarUrl: state.profile.avatarUrl||'' }));
+}
+function broadcastGroupAvatar(chat){
+  chat.memberIds.forEach(pid => sendToPeer(pid, { type:'group-avatar', groupId: chat.id, avatarUrl: chat.avatarUrl||'' }));
+}
+
+/* ============================================================
+   HELP / FAQ
+   ============================================================ */
+function openFaqModal(){
+  const items = [
+    {
+      q: 'How do I start a chat with someone?',
+      a: 'Tap <b>New chat → Invite someone</b>. Your invite is copied to your clipboard automatically — send it to them any way you like (text, email, WhatsApp, anything). When they reply with their code, paste it into the "Paste what they send back" box and connect.'
+    },
+    {
+      q: "Why do we both have to send a code — can't it just connect automatically?",
+      a: "Driftline has no server in the middle, so there's nothing that can quietly introduce you two. The code is the only thing that carries technical details to open a direct, private line. It's a bit like exchanging phone numbers before a call."
+    },
+    {
+      q: 'The code looks long and weird. Is that normal?',
+      a: "Yes — that's expected. It's compressed technical connection data. Just tap Copy and send the whole thing without editing it."
+    },
+    {
+      q: "I switched apps to send the code and the page reset. What happened?",
+      a: "Phones sometimes close background browser tabs to save memory. Use the <b>Share button</b> next to Copy — it sends the code without fully leaving Driftline."
+    },
+    {
+      q: 'How do groups work?',
+      a: "One person creates the group and becomes its host. The host invites each new person with their own individual code. Messages are relayed through the host."
+    },
+    {
+      q: 'Can I set a profile photo?',
+      a: 'Yes — tap your circle at the top of the sidebar to add one.'
+    },
+    {
+      q: 'Is anything stored on a server?',
+      a: 'No accounts and no message storage — chats, files, and calls travel directly between your devices.'
+    },
+    {
+      q: 'Can I make voice or video calls?',
+      a: "Yes — once connected, use the call buttons in their chat header."
+    },
+  ];
+  $('#modalRoot').innerHTML = `
+  <div class="overlay" id="ov">
+    <div class="modal" style="width:520px;">
+      <button class="icon-btn close-x" id="mClose">${svgClose()}</button>
+      <h3>Help &amp; FAQ</h3>
+      <p class="desc">Quick answers to the most common questions.</p>
+      <div class="faq-list">
+        ${items.map((it,i) => `
+          <div class="faq-item">
+            <button class="faq-q" data-i="${i}">${esc(it.q)} <span class="faq-caret">⌄</span></button>
+            <div class="faq-a" id="faqA${i}" style="display:none;">${it.a}</div>
+          </div>`).join('')}
+      </div>
+    </div>
+  </div>`;
+  bindModalClose();
+  $$('.faq-q').forEach(btn => btn.addEventListener('click', () => {
+    const i = btn.dataset.i;
+    const panel = $('#faqA'+i);
+    const open = panel.style.display !== 'none';
+    panel.style.display = open ? 'none' : 'block';
+    btn.classList.toggle('open', !open);
+  }));
+}
+
+/* ============================================================
+   RENAME CHAT / GROUP
+   ============================================================ */
+function openRenameModal(chatId){
+  const chat = state.chats.get(chatId);
+  if (!chat || chat.type==='bot') return;
+  $('#modalRoot').innerHTML = `
+  <div class="overlay" id="ov">
+    <div class="modal">
+      <button class="icon-btn close-x" id="mClose">${svgClose()}</button>
+      <h3>Rename ${chat.type==='group'?'group':'chat'}</h3>
+      <p class="desc">${chat.type==='group' ? 'Everyone in the group will see the new name.' : "This is just your own label for them — it stays on your device."}</p>
+      <input class="text-input" id="renameInput" maxlength="40" value="${esc(chat.name)}">
+      <div class="modal-actions"><button class="btn primary" id="renameSave" style="width:100%;">Save</button></div>
+    </div>
+  </div>`;
+  bindModalClose();
+  const input = $('#renameInput');
+  input.focus(); input.select();
+  const save = () => {
+    const name = input.value.trim();
+    if (!name){ toast('Give it a name first'); return; }
+    chat.name = name;
+    chat.nameCustom = true;
+    renderChatList();
+    renderChatMain();
+    if (chat.type==='group' && chat.isHost) broadcastGroupRename(chat);
+    closeModal();
+  };
+  $('#renameSave').onclick = save;
+  input.addEventListener('keydown', (e) => { if (e.key==='Enter') save(); });
+}
+function broadcastGroupRename(chat){
+  chat.memberIds.forEach(pid => sendToPeer(pid, { type:'group-rename', groupId: chat.id, name: chat.name }));
+}
+
+/* ============================================================
+   THEME MODAL
+   ============================================================ */
+function openThemeModal(){
+  const t = state.theme;
+  $('#modalRoot').innerHTML = `
+  <div class="overlay" id="ov">
+    <div class="modal">
+      <button class="icon-btn close-x" id="mClose">${svgClose()}</button>
+      <h3>Appearance</h3>
+      <p class="desc">Pick a look — it applies instantly and stays consistent across every screen.</p>
+      <div class="field-label">Mode</div>
+      <div class="mode-row">
+        <button class="mode-btn ${t.mode==='light'?'active':''}" data-mode="light">Light</button>
+        <button class="mode-btn ${t.mode==='dark'?'active':''}" data-mode="dark">Dark</button>
+      </div>
+      <div class="field-label">Accent color</div>
+      <div class="accent-row" id="accentRow"></div>
+    </div>
+  </div>`;
+  bindModalClose();
+  $$('.mode-btn').forEach(b => b.onclick = () => { state.theme.mode=b.dataset.mode; applyTheme();$$
+('.mode-btn').forEach(x=>x.classList.remove('active')); b.classList.add('active'); });
+  const accents = [['blue','#4C6FFF'],['purple','#8C5CF5'],['pink','#F5559B'],['green','#1FB574'],['orange','#FF8A3D']];
+  $('#accentRow').innerHTML = accents.map(([key,hex]) => `<button class="accent-dot ${t.accent===key?'selected':''}" data-accent="${key}" style="background:${hex}"></button>`).join('');
+  $$('.accent-dot').forEach(b => b.onclick = () => { state.theme.accent=b.dataset.accent; applyTheme();$$
+('.accent-dot').forEach(x=>x.classList.remove('selected')); b.classList.add('selected'); });
+}
+function applyTheme(){
+  document.documentElement.setAttribute('data-theme', state.theme.mode);
+  document.documentElement.setAttribute('data-accent', state.theme.accent);
+}
+
+/* ============================================================
+   STREAMING BAND INTEGRATION
+   ============================================================ */
+const streamingBandHtmlCode = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0e0f13">
+<title>Driftline Crayon Streaming Band</title>
+<style>
+:root{
+  --bg:#0e0f13; --panel:#16181f; --panel-2:#1d2029; --line:#2a2e3a;
+  --text:#eef0f5; --muted:#9aa1b2;
+  --coral:#ff6b5e; --amber:#ffb340; --teal:#2ec4b6;
+  --accent:var(--coral);
+  --hh:64px; --nh:0px; --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+body{
+  background:var(--bg); color:var(--text);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  line-height:1.45; min-height:100dvh; padding:20px;
+}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+.top{display:flex;align-items:center;gap:20px;margin-bottom:20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand b{display:block;font-size:1rem;letter-spacing:.02em}
+.brand small{display:block;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.nav{display:flex;gap:6px}
+.nav button{padding:8px 14px;border-radius:10px;color:var(--muted);font-weight:600;font-size:.9rem}
+.nav button[aria-selected="true"]{color:var(--text);background:var(--panel-2)}
+h1{font-size:1.4rem;margin-bottom:10px}
+.empty{border:1px dashed var(--line);border-radius:var(--radius);padding:36px;text-align:center;color:var(--muted)}
+</style>
+</head>
+<body>
+  <div class="top">
+    <div class="brand">
+      <span><b>Driftline Crayon</b><small>Streaming Band</small></span>
+    </div>
+    <div class="nav">
+      <button aria-selected="true">Spotify</button>
+      <button aria-selected="false">TikTok</button>
+      <button aria-selected="false">YouTube</button>
+    </div>
+  </div>
+  <div class="empty">Streaming Band Active &mdash; Ready to connect codes.</div>
+</body>
+</html>`;
+
+function openStreamingBandModal(){
+  const dlg = $('#streamingBandDialog');
+  const frame = $('#streamingBandFrame');
+  const blobUrl = URL.createObjectURL(new Blob([streamingBandHtmlCode], { type: 'text/html' }));
+  frame.src = blobUrl;
+  if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+}
+
+$('#closeStreamingBand').onclick = () => {
+  const dlg = $('#streamingBandDialog');
+  if (dlg.close) dlg.close(); else dlg.removeAttribute('open');
+  $('#streamingBandFrame').src = 'about:blank';
+};
+
+$('#btnStreamingBand').onclick = openStreamingBandModal;
+
+/* ============================================================
+   BOOT
+   ============================================================ */
+$('#nameInput').addEventListener('input', (e) => {
+  state.profile.name = e.target.value.trim();
+  renderRailAvatar();
+});
+$('#navTheme').addEventListener('click', openThemeModal);
+$('#navHelp').addEventListener('click', openFaqModal);
+let deferredInstallPrompt = null;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  $('#navInstall').style.display = 'flex';
+});
+$('#navInstall').addEventListener('click', async () => {
+  if (!deferredInstallPrompt) return;
+  deferredInstallPrompt.prompt();
+  await deferredInstallPrompt.userChoice;
+  deferredInstallPrompt = null;
+  $('#navInstall').style.display = 'none';
+});
+window.addEventListener('appinstalled', () => { $('#navInstall').style.display = 'none'; toast('Installed — find it on your home screen'); });
+$('#avatarBtn').addEventListener('click', openProfileAvatarModal);
+$('#mobileMenuBtn').addEventListener('click', () => document.body.classList.toggle('nav-open'));
+$('#navScrim').addEventListener('click', () => document.body.classList.remove('nav-open'));
+$('#sidebarCloseBtn').addEventListener('click', () => document.body.classList.remove('nav-open'));
+$('#navChats').addEventListener('click', () => {});
+$('#btnNewChat').addEventListener('click', openNewChatModal);
+$('#btnNewGroup').addEventListener('click', openNewGroupModal);
+
+applyTheme();
+renderRailAvatar();
+ensurePipChat();
+renderChatList();
+setActiveChat('bot-pip');
+
+window.addEventListener('beforeunload', (e) => {
+  const midHandshake = Array.from(state.peers.values()).some(p => p.status === 'connecting');
+  if (midHandshake){
+    e.preventDefault();
+    e.returnValue = '';
+  }
+});
+window.addEventListener('pagehide', () => {
+  state.peers.forEach(p => { try{ p.pc.close(); }catch(e){} });
+});
+
+})();
+</script>
+</body>
+</html>
