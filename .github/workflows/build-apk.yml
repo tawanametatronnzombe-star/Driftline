@@ -1,0 +1,26 @@
+name: Build Driftline APK
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unpack the Android project
+        run: unzip -q driftline-android.zip
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: '17' }
+      - uses: android-actions/setup-android@v3
+      - uses: gradle/actions/setup-gradle@v4
+        with: { gradle-version: '8.7' }
+      - name: Build release APK
+        working-directory: android
+        run: gradle --no-daemon assembleRelease
+      - name: Collect APK
+        run: |
+          mkdir -p downloads
+          cp "$(find android/app/build/outputs/apk/release -name '*.apk' | head -1)" downloads/Driftline.apk
+      - uses: actions/upload-artifact@v4
+        with: { name: Driftline-apk, path: downloads/Driftline.apk }
